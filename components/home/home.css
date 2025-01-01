@@ -1,0 +1,31 @@
+/* team card hover styles */
+.team-card-hover {
+  transition: all 0.1s ease-in-out;
+  background-color: #ffffff;
+}
+
+.team-card-hover:hover {
+  box-shadow: 0px 4px 30.5px 0px #00ce9340; /* Shadow effect */
+  border: 1px solid transparent;
+  border-radius: 70px;
+  position: relative;
+  background-clip: padding-box;
+  background-color: #ffffff;
+  width: 275px;
+}
+
+.team-card-hover::after {
+  position: absolute;
+  top: 1px;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  background: linear-gradient(180deg, #ffffff 0%, #00ce93 100%);
+  content: "";
+  z-index: -1;
+  border-radius: 70px;
+}
+
+.team-card-hover:hover .teamMemberImage {
+  filter: grayscale(0%);
+}
