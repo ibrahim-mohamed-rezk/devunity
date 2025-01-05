@@ -1,13 +1,24 @@
 const Footer = () => {
   return (
-    <div className="w-full flex items-center justify-center ">
+    <div className="w-full flex items-center justify-center mb-[20px] ">
       <div
-        className="container rounded-[24px] py-[40px] px-[60px] "
+        className="container relative rounded-[24px] py-[40px] px-[60px]  "
         style={{
           backgroundImage: "url(/home/heroBg.png)",
         }}
       >
-        <div className="w-full flex items-center justify-between">
+        {/* glow */}
+        <div
+          className="absolute z-0 rounded-full top-[50%] left-[50%] w-[60%] h-[30%] translate-x-[-50%] translate-y-[-50%] "
+          style={{
+            borderRadius: "40px",
+            border: "32px solid #00CE93",
+            mixBlendMode: "screen",
+            filter: "blur(112.5px)",
+          }}
+        ></div>
+        {/* footer content */}
+        <div className="w-full flex items-center justify-between relative z-20">
           <div className="flex flex-col items-start justify-start">
             <div>
               <img
