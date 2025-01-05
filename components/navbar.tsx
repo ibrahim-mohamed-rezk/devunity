@@ -150,7 +150,7 @@ const Navbar = () => {
         </nav>
 
         {/* Hero Section */}
-        <div className="flex mx-auto max-w-[930px] flex-col items-center justify-center z-10 relative mt-[200px]">
+        <div className="flex container mx-auto max-w-[930px] flex-col items-center justify-center z-10 relative mt-[200px]">
           <div className="border-[25px] border-transparent p-[20px] relative">
             <div
               className="absolute w-full h-full top-0 left-0"

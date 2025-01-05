@@ -2,6 +2,7 @@
 .team-card-hover {
   transition: all 0.1s ease-in-out;
   background-color: #ffffff;
+  position: relative;
 }
 
 .team-card-hover:hover {
@@ -16,14 +17,21 @@
 
 .team-card-hover::after {
   position: absolute;
-  top: 1px;
-  bottom: -2px;
-  left: -2px;
-  right: -2px;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
   background: linear-gradient(180deg, #ffffff 0%, #00ce93 100%);
   content: "";
   z-index: -1;
   border-radius: 70px;
+}
+
+ .team-card-hover:hover::after{
+  top: 10px;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
 }
 
 .team-card-hover:hover .teamMemberImage {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "DevUnity",
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         <main className="container pb-[50px]">{children}</main>
+        <Footer />
       </body>
     </html>
   );

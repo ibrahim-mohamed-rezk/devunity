@@ -32,6 +32,11 @@ button:focus {
   outline: none;
 }
 
+input{
+  border: none;
+  outline: none;
+}
+
 .container {
   margin: 0 auto;
 }

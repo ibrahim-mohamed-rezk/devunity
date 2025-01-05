@@ -44,7 +44,7 @@ const Team = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center mt-[150px] ">
+    <div className="flex flex-col container items-center justify-center mt-[150px] ">
       <h2 className="text-center text-[#00ce93] text-base font-bold font-['Istok Web']">
         Team
       </h2>
