@@ -5,58 +5,60 @@ interface cycleDataType {
   id?: number;
   title: string;
   description: string;
+
 }
 
 const DevelopCycle = () => {
   const cycleData: cycleDataType[] = [
     {
       id: 0,
-      title: "iOS  development",
+      title: "iOS Development",
       description:
-        "At devunity , we specialize in crafting exceptional web solutions that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable web platforms tailored to your specific needs.",
+        "At Devunity, we specialize in crafting exceptional mobile applications for iOS that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable solutions tailored to your specific needs.",
     },
     {
       id: 1,
-      title: "Android development",
+      title: "Android Development",
       description:
-        "At devunity , we specialize in crafting exceptional web solutions that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable web platforms tailored to your specific needs.",
+        "At Devunity, we specialize in crafting exceptional mobile applications for Android that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable solutions tailored to your specific needs.",
     },
     {
       id: 2,
-      title: "Web development",
+      title: "Web Development",
       description:
-        "At devunity , we specialize in crafting exceptional web solutions that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable web platforms tailored to your specific needs.",
+        "At Devunity, we specialize in crafting exceptional web solutions that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable web platforms tailored to your specific needs.",
     },
     {
       id: 3,
-      title: "UI/UX design",
+      title: "UI/UX Design",
       description:
-        "At devunity , we specialize in crafting exceptional web solutions that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable web platforms tailored to your specific needs.",
+        "At Devunity, we specialize in crafting exceptional user interfaces and experiences that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable designs tailored to your specific needs.",
     },
     {
       id: 4,
-      title: "Testing",
+      title: "Quality Assurance Testing",
       description:
-        "At devunity , we specialize in crafting exceptional web solutions that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable web platforms tailored to your specific needs.",
+        "At Devunity, we specialize in ensuring the quality of our products through rigorous testing processes that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and reliable solutions tailored to your specific needs.",
     },
     {
       id: 5,
-      title: "Launch",
+      title: "Product Launch",
       description:
-        "At devunity , we specialize in crafting exceptional web solutions that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable web platforms tailored to your specific needs.",
+        "At Devunity, we specialize in launching products that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable solutions tailored to your specific needs.",
     },
     {
       id: 6,
-      title: "IT consulting",
+      title: "IT Consulting",
       description:
-        "At devunity , we specialize in crafting exceptional web solutions that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable web platforms tailored to your specific needs.",
+        "At Devunity, we specialize in providing IT consulting services that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable strategies tailored to your specific needs.",
     },
   ];
 
+
   const [activeCycle, setActiveCycle] = useState(0);
   return (
-      <div className="flex flex-col sm:flex-row items-start justify-center gap-[120px] ">
-        <ul className="flex w-[250px] flex-col items-start justify-start gap-[15px]  ">
+      <div className="flex flex-col px-[10px] md:px-0 sm:flex-row items-center sm:items-start justify-center gap-[50px] sm:gap-[120px] ">
+        <ul className="flex w-[250px] flex-col items-center sm:items-start justify-start gap-[15px]  ">
           {cycleData.map((data) => (
             <li
               onClick={() => setActiveCycle(data.id as number)}
@@ -87,19 +89,19 @@ const DevelopCycle = () => {
         </ul>
 
         {/* dynamic display data */}
-        <div className="flex max-w-[500px] flex-col items-start justify-start gap-[]">
-          <h2 className="font-bold text-[36px] text-[#101828] ">
+        <div className="flex max-w-[500px] flex-col items-center sm:items-start justify-start gap-[]">
+          <h2 className="font-bold text-[36px] text-[#101828] text-center sm:text-start ">
             Full development cycle
           </h2>
           <span className="font-[500] text-[15px] text-[#101828] ">
             We use proven technologies
           </span>
 
-          <div className="mt-[50px]  ">
+          <div className="mt-[50px]  w-full flex items-center sm:items-start flex-col justify-center ">
             <h2 className="font-semibold text-[20px] text-[#101828]">
               {cycleData[activeCycle].title}
             </h2>
-            <p className="font-normal text-[17px] mt-[15px] text-[#344054]">
+            <p className="font-normal text-[17px] text-center sm:text-start mt-[15px] text-[#344054]">
               {cycleData[activeCycle].description}
             </p>
           </div>

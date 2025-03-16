@@ -1,51 +1,11 @@
 "use client";
 
-import TeamMemberCard from "./TeamMemberCard";
+import TeamMemberCard from "../cards/TeamMemberCard";
 
-interface TeamMemberCard {
-  name: string;
-  job: string;
-  image: string;
-  linkedInLink?: string;
-  TwiterLink?: string;
-}
-
-const Team = () => {
-  // Example team member data
-  const teamMembers: TeamMemberCard[] = [
-    {
-      name: "Mohamed Ouf",
-      job: "Back-End Developer",
-      image: "/home/team/mohamed.png",
-      linkedInLink: "https://linkedin.com/in/alice",
-      TwiterLink: "https://github.com/alice",
-    },
-    {
-      name: "Mahmoud Eldengawy",
-      job: "Mobile Applications Developer",
-      image: "/home/team/mahmoud.png",
-      linkedInLink: "https://linkedin.com/in/alice",
-      TwiterLink: "https://github.com/alice",
-    },
-    {
-      name: "Ebrahim Rezk ",
-      job: "Front-End Developer",
-      image: "/home/team/ibrahim.png",
-      linkedInLink: "https://linkedin.com/in/alice",
-      TwiterLink: "https://github.com/alice",
-    },
-    {
-      name: "Mohamed Abe-Elyazed",
-      job: "UI - UX Desinge",
-      image: "/home/team/yazeed.png",
-      linkedInLink: "https://facebook.com/bob",
-      TwiterLink: "https://instagram.com/bob",
-    },
-  ];
-
+const Team = ({ owners }: { owners: [any] }) => {
   return (
-    <div className="flex flex-col container items-center justify-center mt-[150px] ">
-      <h2 className="text-center text-[#00ce93] text-base font-bold font-['Istok Web']">
+    <div className="flex flex-col container items-center justify-center  ">
+      <h2 className="text-center text-[#00ce93] text-base font-bold font-['Istok Web'] mt-[150px]">
         Team
       </h2>
       <h3 className="text-center mt-[12px] text-[#28282a] text-4xl font-bold font-['Istok Web'] capitalize">
@@ -57,8 +17,8 @@ const Team = () => {
       </p>
 
       <div className="flex flex-wrap justify-center gap-[50px] mt-[50px] ">
-        {teamMembers.map((member, index) => (
-          <TeamMemberCard key={index} {...member} />
+        {owners.map((member, index) => (
+          <TeamMemberCard key={index} memberData={member}  />
         ))}
       </div>
     </div>

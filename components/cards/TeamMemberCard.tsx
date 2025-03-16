@@ -1,34 +1,28 @@
 import "./home.css";
-interface TeamMember {
-  name: string;
-  job: string;
-  image: string;
-  linkedInLink?: string;
-  TwiterLink?: string;
-}
-const TeamMemberCard = ({
-  name,
-  job,
-  image,
-  linkedInLink,
-  TwiterLink,
-}: TeamMember) => {
+
+const TeamMemberCard = ({ memberData }: any) => {
+  console.log(memberData);
   return (
-    <div className="felx team-card-hover text-center rounded-[70px] hover:rounded-[70px] border-none  cursor-pointer  items-center justify-center w-[270px] p-[20px]">
-      <img
-        className="teamMemberImage filter grayscale"
-        src={image}
-        alt={name}
-      />
+    <div className="felx team-card-hover text-center rounded-[70px] hover:rounded-[70px] border-none  cursor-pointer  items-center justify-center w-[270px] overflow-hidden p-[20px]">
+      <div
+        className="teamMemberImage filter grayscale rounded-[70px] overflow-hidden"
+        style={{ backgroundColor: memberData?.background_color }}
+      >
+        <img
+          className=" w-full h-full rounded-[70px] "
+          src={memberData.image}
+          alt={memberData.full_name}
+        />
+      </div>
       <h2 className="text-center mt-[22px] text-black text-xl font-bold font-['Istok Web']">
-        {name}
+        {memberData.full_name}
       </h2>
       <h3 className="text-center text-black text-sm font-normal mt-[5px] font-['Istok Web']">
-        {job}
+        {memberData.job_title}
       </h3>
       <div className="flex items-center justify-center mt-[25px] gap-[25px] ">
         <div className="w-[39px] h-[39px] bg-white rounded-full flex items-center justify-center border border-[#624ce6]">
-          <a href={TwiterLink} target="_blank" rel="noreferrer">
+          <a href={`TwiterLink`} target="_blank" rel="noreferrer">
             <svg
               width="17"
               height="14"
@@ -44,7 +38,7 @@ const TeamMemberCard = ({
           </a>
         </div>
         <div className="w-[39px] h-[39px] bg-white rounded-full flex items-center justify-center border border-[#2300ff]">
-          <a href={linkedInLink} target="_blank" rel="noreferrer">
+          <a href={`linkedInLink`} target="_blank" rel="noreferrer">
             <svg
               width="15"
               height="14"

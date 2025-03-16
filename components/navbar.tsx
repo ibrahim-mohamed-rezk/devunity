@@ -10,11 +10,11 @@ interface MenuItem {
 const Navbar = () => {
   const menuItems: MenuItem[] = [
     { title: "Home", link: "/" },
-    { title: "About", link: "/about" },
-    { title: "Services", link: "/services" },
-    { title: "Projects", link: "/projects" },
-    { title: "Blogs", link: "/blogs" },
-    { title: "Contact", link: "/contact" },
+    { title: "About", link: "#about" },
+    { title: "Services", link: "#services" },
+    { title: "Projects", link: "#projects" },
+    { title: "Blogs", link: "#blogs" },
+    { title: "Contact", link: "#contact" },
   ];
 
   const [isOffcanvasMenuOpen, setOffcanvasMenuOpen] = useState(false);
@@ -69,7 +69,7 @@ const Navbar = () => {
       className="relative "
       style={{ backgroundImage: "url('/home/heroBg.png')" }}
     >
-      <div className="w-full overflow-hidden relative pb-[100px]">
+      <div className="w-full overflow-hidden relative px-[10px] md:px-0 pb-[100px] ">
         <nav className="navbar bg-base-100 container pt-[16px] bg-transparent">
           {/* Desktop Navigation */}
           <div className="hidden md:flex flex-1 z-10">
@@ -89,9 +89,9 @@ const Navbar = () => {
 
           {/* Mobile Navigation */}
           <div
-            className={`absolute top-0 left-0 w-full h-screen bg-[#AAA7A7] z-10 transform ${
+            className={`absolute top-0 left-0 w-full h-screen bg-[var(--primary-color)] z-40 transform ${
               isOffcanvasMenuOpen ? "translate-x-0" : "translate-x-[-120%]"
-            } transition-transform duration-300 ease-in-out md:hidden`}
+            } transition-transform duration-300 ease-in-out md:hidden flex items-start justify-start `}
           >
             <ul className="flex flex-col px-[20px] gap-[23px] items-center pt-[100px]">
               {menuItems.map((item) => (
@@ -108,7 +108,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex-1 md:hidden z-20">
+          <div className="flex-1 md:hidden z-50">
             <button
               aria-label={isOffcanvasMenuOpen ? "Close menu" : "Open menu"}
               onClick={handleMenuToggle}
@@ -151,7 +151,7 @@ const Navbar = () => {
 
         {/* Hero Section */}
         <div className="flex container mx-auto max-w-[930px] flex-col items-center justify-center z-10 relative mt-[200px]">
-          <div className="border-[25px] border-transparent p-[20px] relative">
+          <div className="border-[25px] mt-[100px] border-transparent p-[20px] relative">
             <div
               className="absolute w-full h-full top-0 left-0"
               style={{
@@ -163,20 +163,20 @@ const Navbar = () => {
             ></div>
             <img className="" src="/siteLogo.png" alt="Logo" />
           </div>
-          <div className="mt-[70px]">
-            <h2 className="font-[800] text-[50px] text-[var(--primary-color)] text-center">
+          <div className="mt-[clamp(50px,3.64535vw,70px)]">
+            <h2 className="font-[800] text-[clamp(30px,2.60417vw,50px)] text-[var(--primary-color)] text-center">
               Towards a distinctive digital future
             </h2>
-            <p className="font-[400] text-[25px] text-white text-center">
+            <p className="font-[400] text-[clamp(15px,1.3020335vw,25px)] text-white text-center">
               We provide innovative software solutions, website and application
               design that effectively achieve your business goals.
             </p>
           </div>
           <div className="flex items-center gap-[30px] mt-[50px]">
-            <button className="bg-[var(--primary-color)] w-[193px] text-[20px] text-white h-[66px] rounded-[20px]">
+            <button className="bg-[var(--primary-color)] w-[clamp(130px,10.0520334vw,193px)] text-[clamp(15px,1.04165vw,20px)] text-white h-[clamp(55px,3.43754vw,66px)] rounded-[clamp(15px,1.04165vw,20px)]">
               Contact us
             </button>
-            <button className="border-[2px] border-[var(--primary-color)] w-[165px] text-[20px] text-white h-[66px] rounded-[20px]">
+            <button className="border-[2px] border-[var(--primary-color)] w-[clamp(110px,8.59375vw,165px)] text-[clamp(15px,1.04165vw,20px)] text-white h-[clamp(55px,3.43754vw,66px)] rounded-[clamp(15px,1.04165vw,20px)]">
               Services
             </button>
           </div>

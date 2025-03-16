@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <div className="w-full flex items-center justify-center mb-[20px] ">
+    <div className="w-full flex items-center justify-center mb-[clamp(2px,1.041665vw,20px)] ">
       <div
-        className="container relative rounded-[24px] py-[40px] px-[60px]  "
+        className="container relative rounded-[clamp(10px,1.25vw,24px)] py-[40px] px-[60px]  "
         style={{
           backgroundImage: "url(/home/heroBg.png)",
         }}
@@ -18,9 +18,9 @@ const Footer = () => {
           }}
         ></div>
         {/* footer content */}
-        <div className="w-full flex items-center justify-between relative z-20">
+        <div className="w-full flex flex-col md:flex-row items-center justify-between relative z-20">
           <div className="flex flex-col items-start justify-start">
-            <div>
+            <div className="flex items-center justify-center w-full flex-col md:items-start">
               <img
                 className="w-[118px] h-[30px] "
                 src="/siteLogo.png"
@@ -31,7 +31,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="mt-[20px] justify-start items-start gap-[22px] inline-flex">
+            <div className="mt-[20px] justify-center w-full md:justify-start items-start gap-[22px] inline-flex">
               <div className=" py-px justify-start items-start flex">
                 <div className="text-center text-white/60 text-lg font-normal font-['Font Awesome 5 Brands'] leading-[18px]">
                   <svg
@@ -72,34 +72,34 @@ const Footer = () => {
               <div className=" p-[15px] bg-white/10 rounded-xl shadow-[inset_0px_0px_0px_0px_rgba(0,153,255,1.00)] justify-start items-start flex">
                 <input
                   placeholder="work@email.com"
-                  className="text-white/60 w-[290px] bg-transparent text-[15px] font-normal font-['Inter']"
+                  className="text-white/60 w-[clamp(180px,15.104166vw,290px)] bg-transparent text-[15px] font-normal font-['Inter']"
                 />
               </div>
-              <button className="text-center justify-start items-start flex text-[#0f1f3d] text-[15px] font-semibold font-['Inter'] leading-[15px] px-[15px] py-[17px] bg-white/80 rounded-xl">
+              <button className="text-center text-nowrap justify-start items-start flex text-[#0f1f3d] text-[15px] font-semibold font-['Inter'] leading-[15px] px-[15px] py-[17px] bg-white/80 rounded-xl">
                 Sign Up
               </button>
             </div>
           </div>
 
-          <div className="pt-[44px] justify-start items-start gap-[100px] inline-flex">
-            <div className=" flex-col justify-start items-start gap-[24px] inline-flex">
-              <div className="justify-start items-start flex">
+          <div className="pt-[44px] justify-center md:justify-start items-start gap-y-[30px] gap-x-[clamp(70px,5.208334vw,100px)] inline-flex flex-wrap ">
+            <div className=" flex-col justify-start items-center md:items-start gap-[24px] inline-flex">
+              <div className="justify-start items-center flex-col md:items-start flex">
                 <div className="text-[#fcfcfc] text-base font-medium font-['Inter'] leading-none tracking-tight">
                   Product
                 </div>
               </div>
-              <div className="flex-col justify-start items-start gap-3 flex">
-                <div className="self-stretch justify-start items-start inline-flex">
+              <div className="flex-col justify-start items-center md:items-start gap-3 flex">
+                <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex">
                   <div className="justify-center items-center flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
                     Product
                   </div>
                 </div>
-                <div className="self-stretch justify-start items-start inline-flex">
+                <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex">
                   <div className="justify-center items-center flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
                     Changelog
                   </div>
                 </div>
-                <div className="self-stretch justify-start items-start inline-flex">
+                <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex">
                   <div className="justify-center items-center flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
                     Guide
                   </div>
@@ -107,30 +107,30 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="w-[44.25px] flex-col justify-start items-start gap-[24px] inline-flex">
-              <div className="text-[#fcfcfc] text-base font-medium font-['Inter'] leading-none tracking-tight justify-start items-start inline-flex">
+            <div className="w-[44.25px] flex-col justify-start items-center md:items-start gap-[24px] inline-flex">
+              <div className="text-[#fcfcfc] text-base font-medium font-['Inter'] leading-none tracking-tight justify-start items-center flex-col md:items-start inline-flex">
                 Learn
               </div>
-              <div className="justify-start items-start inline-flex">
+              <div className="justify-start items-center flex-col md:items-start inline-flex">
                 <div className="self-stretch justify-center items-center inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
                   Blog
                 </div>
               </div>
             </div>
 
-            <div className="flex-col justify-start items-start gap-[24px] inline-flex">
-              <div className="text-[#fcfcfc] justify-start items-start flex text-base font-medium font-['Inter'] leading-none tracking-tight">
+            <div className="flex-col justify-start items-center md:items-start gap-[24px] inline-flex">
+              <div className="text-[#fcfcfc] justify-start items-center flex-col md:items-start flex text-base font-medium font-['Inter'] leading-none tracking-tight">
                 Company
               </div>
 
-              <div className="flex-col justify-start items-start gap-3 flex">
-                <div className="self-stretch justify-start items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
+              <div className="flex-col justify-start items-center md:items-start gap-3 flex">
+                <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
                   Terms of Service
                 </div>
-                <div className="self-stretch justify-start items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
+                <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
                   Privacy Policy
                 </div>
-                <div className="self-stretch justify-start items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
+                <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
                   한국어
                 </div>
               </div>
@@ -140,11 +140,11 @@ const Footer = () => {
 
         <div className="w-full mt-[40px] ">
           <div className="w-full border-t border-white/10"></div>
-          <div className="pr-[0.19px] mt-[30px] w-full flex items-center justify-between">
+          <div className="pr-[0.19px] mt-[30px] flex-col md:flex-row gap-[10px] w-full flex items-center justify-between">
             <div className="text-white/60 text-[15px] font-normal font-['Inter'] leading-[18px] tracking-tight">
               © 2023 Pixelic, Inc. dba Relate.
             </div>
-            <div className="text-white/60 sm:pe-[70px] text-[15px] font-normal font-['Inter'] leading-[18px] tracking-tight">
+            <div className="text-white/60 md:pe-[70px] text-[15px] font-normal font-['Inter'] leading-[18px] tracking-tight">
               Backed by Y Combinator
             </div>
           </div>
