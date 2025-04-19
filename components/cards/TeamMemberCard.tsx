@@ -1,7 +1,7 @@
+import { TeamMember } from "@/libs/helpers/types";
 import "./home.css";
 
-const TeamMemberCard = ({ memberData }: any) => {
-  console.log(memberData);
+const TeamMemberCard = ({ memberData }: { memberData: TeamMember }) => {
   return (
     <div className="felx team-card-hover text-center rounded-[70px] hover:rounded-[70px] border-none  cursor-pointer  items-center justify-center w-[270px] overflow-hidden p-[20px]">
       <div

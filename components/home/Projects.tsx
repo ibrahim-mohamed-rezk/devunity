@@ -1,7 +1,8 @@
 import Link from "next/link";
 import ProjectCard from "../cards/ProjectCard";
+import { ProjectCardTypes } from "@/libs/helpers/types";
 
-const Projects = ({ projectsData }: { projectsData: [any] }) => {
+const Projects = ({ projectsData }: { projectsData: [ProjectCardTypes] }) => {
   return (
     <div className="w-full mt-[100px] ">
       <h2 className="w-full flex items-center justify-center text-center text-[#28282a] text-4xl font-bold font-[Istok Web] capitalize ">

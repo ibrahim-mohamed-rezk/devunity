@@ -1,8 +1,9 @@
 "use client";
 
+import { ProjectCardTypes } from "@/libs/helpers/types";
 import { useState } from "react";
 
-const ProjectCard = ({ cardData }: any) => {
+const ProjectCard = ({ cardData }: { cardData: ProjectCardTypes }) => {
   const [showDescription, setShowDescription] = useState(false);
   return (
     <div
@@ -55,7 +56,11 @@ const ProjectCard = ({ cardData }: any) => {
             dangerouslySetInnerHTML={{ __html: cardData.description }}
           />
           <div className="h-[74px] justify-start items-center gap-5 inline-flex justify-self-end">
-            <a target="_blank" href={cardData?.app_store} className="w-[74px] h-[74px] pl-[21px] pr-5 pt-[17px] pb-[18px] bg-white rounded-[21px] shadow-[0px_0px_18px_0px_rgba(255,255,255,0.20)] border border-[#a6a6a6] justify-start items-center gap-2.5 flex">
+            <a
+              target="_blank"
+              href={cardData?.app_store}
+              className="w-[74px] h-[74px] pl-[21px] pr-5 pt-[17px] pb-[18px] bg-white rounded-[21px] shadow-[0px_0px_18px_0px_rgba(255,255,255,0.20)] border border-[#a6a6a6] justify-start items-center gap-2.5 flex"
+            >
               <svg
                 width="28"
                 height="35"
@@ -73,7 +78,11 @@ const ProjectCard = ({ cardData }: any) => {
                 />
               </svg>
             </a>
-            <a target="_blank" href={cardData?.google_play} className="w-[74px] h-[74px] pl-[21px] pr-5 pt-[17px] pb-[18px] bg-white rounded-[21px] shadow-[0px_0px_18px_0px_rgba(255,255,255,0.20)] border border-[#a6a6a6] justify-start items-center gap-2.5 flex">
+            <a
+              target="_blank"
+              href={cardData?.google_play}
+              className="w-[74px] h-[74px] pl-[21px] pr-5 pt-[17px] pb-[18px] bg-white rounded-[21px] shadow-[0px_0px_18px_0px_rgba(255,255,255,0.20)] border border-[#a6a6a6] justify-start items-center gap-2.5 flex"
+            >
               <svg
                 width="31"
                 height="35"
@@ -154,7 +163,11 @@ const ProjectCard = ({ cardData }: any) => {
                 </defs>
               </svg>
             </a>
-            <a target="_blank" href={cardData?.website} className="w-[74px] h-[74px] bg-white rounded-[21px] shadow-[0px_0px_18px_0px_rgba(255,255,255,0.20)] border border-[#a6a6a6] justify-center items-center gap-2.5 flex">
+            <a
+              target="_blank"
+              href={cardData?.website}
+              className="w-[74px] h-[74px] bg-white rounded-[21px] shadow-[0px_0px_18px_0px_rgba(255,255,255,0.20)] border border-[#a6a6a6] justify-center items-center gap-2.5 flex"
+            >
               <svg
                 width="24"
                 height="24"

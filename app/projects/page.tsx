@@ -1,5 +1,6 @@
 import ProjectCard from "@/components/cards/ProjectCard";
 import { get } from "@/libs/axios/backEndServer";
+import { ProjectCardTypes } from "@/libs/helpers/types";
 
 const getData = async () => {
   try {
@@ -14,7 +15,7 @@ const page = async () => {
   const projectsData = await getData();
   return (
     <div className="mt-[100px] w-full flex px-[10px] md:px-0 justify-center items-center gap-[25px] flex-wrap">
-      {projectsData.projects.map((project: any, index: number) => (
+      {projectsData.projects.map((project: ProjectCardTypes, index: number) => (
         <ProjectCard key={index} cardData={project} />
       ))}
     </div>

@@ -1,8 +1,9 @@
 "use client";
 
+import { TeamMember } from "@/libs/helpers/types";
 import TeamMemberCard from "../cards/TeamMemberCard";
 
-const Team = ({ owners }: { owners: [any] }) => {
+const Team = ({ owners }: { owners: [TeamMember] }) => {
   return (
     <div className="flex flex-col container items-center justify-center  ">
       <h2 className="text-center text-[#00ce93] text-base font-bold font-['Istok Web'] mt-[150px]">
@@ -18,7 +19,7 @@ const Team = ({ owners }: { owners: [any] }) => {
 
       <div className="flex flex-wrap justify-center gap-[50px] mt-[50px] ">
         {owners.map((member, index) => (
-          <TeamMemberCard key={index} memberData={member}  />
+          <TeamMemberCard key={index} memberData={member} />
         ))}
       </div>
     </div>
