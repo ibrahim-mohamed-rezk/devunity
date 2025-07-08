@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import ProjectCard from "../cards/ProjectCard";
 import { ProjectCardTypes } from "@/libs/helpers/types";
@@ -141,49 +143,16 @@ const Projects = ({ projectsData }: { projectsData: [ProjectCardTypes] }) => {
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className={`
-              absolute w-2 h-2 bg-[#00ce93]/30 rounded-full
-              animate-float-${i % 3 + 1}
-            `}
+            className="absolute w-2 h-2 bg-[#00ce93]/30 rounded-full animate-pulse"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${20 + (i * 15)}%`,
+              top: `${10 + (i * 10)}%`,
               animationDelay: `${i * 0.5}s`,
-              animationDuration: `${3 + Math.random() * 2}s`,
+              animationDuration: `${3 + (i * 0.5)}s`,
             }}
           />
         ))}
       </div>
-
-      {/* Custom CSS for animations */}
-      <style jsx>{`
-        @keyframes float-1 {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        
-        @keyframes float-2 {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-30px) rotate(180deg); }
-        }
-        
-        @keyframes float-3 {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-25px) rotate(180deg); }
-        }
-        
-        .animate-float-1 {
-          animation: float-1 3s ease-in-out infinite;
-        }
-        
-        .animate-float-2 {
-          animation: float-2 4s ease-in-out infinite;
-        }
-        
-        .animate-float-3 {
-          animation: float-3 3.5s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 };
