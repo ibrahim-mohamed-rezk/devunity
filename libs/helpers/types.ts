@@ -14,4 +14,5 @@ export interface ProjectCardTypes{
     google_play: string;
     website: string;
     image: string;
+    category: string;
 }
