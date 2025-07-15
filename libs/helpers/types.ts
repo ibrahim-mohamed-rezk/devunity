@@ -6,6 +6,7 @@ export interface TeamMember{
 }
 
 export interface ProjectCardTypes{
+    id: number;
     background_color: string;
     logo: string;
     title: string;

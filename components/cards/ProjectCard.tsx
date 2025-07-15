@@ -1,18 +1,20 @@
 "use client";
 
 import { ProjectCardTypes } from "@/libs/helpers/types";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const ProjectCard = ({ cardData }: { cardData: ProjectCardTypes }) => {
   const [showDescription, setShowDescription] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter()
 
   return (
     <div
       className="relative w-full max-w-[400px] h-[480px] rounded-3xl overflow-hidden cursor-pointer transform transition-all duration-500 hover:scale-[1.02] group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => setShowDescription(!showDescription)}
+      onClick={() => router.push(`/projects/${cardData.id}`)}
     >
       {/* Main Card */}
       <div className="relative w-full h-full p-6 flex flex-col justify-between rounded-3xl shadow-xl border border-gray-200/50 backdrop-blur-sm transition-all duration-500 bg-white/90 hover:bg-white/95 hover:shadow-2xl hover:border-[#00ce93]/20">
