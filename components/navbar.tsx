@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 
 interface MenuItem {
@@ -19,6 +20,7 @@ const Navbar = () => {
 
   const [isOffcanvasMenuOpen, setOffcanvasMenuOpen] = useState(false);
   const shadowRef = useRef<HTMLDivElement | null>(null);
+  const pathname = usePathname();
 
   const handleMouseMove = (event: MouseEvent) => {
     const { clientX, clientY } = event;
@@ -172,14 +174,14 @@ const Navbar = () => {
               design that effectively achieve your business goals.
             </p>
           </div>
-          <div className="flex items-center gap-[30px] mt-[50px]">
+         {pathname === "/" && <div className="flex items-center gap-[30px] mt-[50px]">
             <button className="bg-[var(--primary-color)] w-[clamp(130px,10.0520334vw,193px)] text-[clamp(15px,1.04165vw,20px)] text-white h-[clamp(55px,3.43754vw,66px)] rounded-[clamp(15px,1.04165vw,20px)]">
               Contact us
             </button>
             <button className="border-[2px] border-[var(--primary-color)] w-[clamp(110px,8.59375vw,165px)] text-[clamp(15px,1.04165vw,20px)] text-white h-[clamp(55px,3.43754vw,66px)] rounded-[clamp(15px,1.04165vw,20px)]">
               Services
             </button>
-          </div>
+          </div>}
         </div>
 
         {/* moon image */}
