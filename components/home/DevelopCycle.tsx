@@ -7,6 +7,7 @@ import {
   TestTube,
   Rocket,
   Settings,
+  Pen,
 } from "lucide-react";
 
 interface cycleDataType {
@@ -66,6 +67,14 @@ const DevelopCycle = () => {
       icon: <Settings className="w-6 h-6" />,
       description:
         "At Devunity, we specialize in providing IT consulting services that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable strategies tailored to your specific needs.",
+    },
+    // Content writing
+    {
+      id: 7,
+      title: "Content Writing",
+      icon: <Pen className="w-6 h-6" />,
+      description:
+        "At Devunity, we specialize in providing content writing services that help businesses thrive in the digital world. Our team is dedicated to delivering user-friendly, innovative, and scalable strategies tailored to your specific needs.",
     },
   ];
 
@@ -162,7 +171,7 @@ const DevelopCycle = () => {
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 animate-in fade-in zoom-in duration-300 delay-200"
+              className="absolute top-5 right-4 w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 animate-in fade-in zoom-in duration-300 delay-200"
             >
               <svg
                 width="16"
@@ -199,14 +208,14 @@ const DevelopCycle = () => {
                       }
                     )}
                 </div>
-                <h2 className="text-3xl font-bold text-white animate-in fade-in slide-in-from-right-4 duration-500 delay-300">
+                <h2 className="text-[clamp(1.5rem,5vw,2rem)]  text-white animate-in fade-in slide-in-from-right-4 duration-500 delay-300">
                   {selectedCard.title}
                 </h2>
               </div>
 
               {/* Description */}
               <div className="prose prose-lg animate-in fade-in slide-in-from-bottom-4 duration-500 delay-400">
-                <p className="text-white font-bold leading-relaxed text-xl">
+                <p className="text-white  leading-relaxed text-[clamp(1rem,5vw,1.2rem)]">
                   {selectedCard.description}
                 </p>
               </div>

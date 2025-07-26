@@ -11,7 +11,7 @@ const ProjectCard = ({ cardData }: { cardData: ProjectCardTypes }) => {
 
   return (
     <div
-      className="relative w-full max-w-[550px] h-[480px] rounded-3xl overflow-hidden cursor-pointer transform transition-all duration-500 hover:scale-[1.02] group"
+      className="relative w-full max-w-[clamp(195.00px,45.14vw,650.00px)] h-[clamp(480.00px,50.00vh,600.00px)] rounded-3xl overflow-hidden cursor-pointer transform transition-all duration-500 hover:scale-[1.02] group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => router.push(`/projects/${cardData.id}`)}
