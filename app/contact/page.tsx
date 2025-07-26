@@ -11,6 +11,7 @@ import {
   Zap,
   Clock,
 } from "lucide-react";
+import axios from "axios";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ const ContactPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+  
     try {
       const requestBody = {
         full_name: formData.name,
@@ -45,65 +46,42 @@ const ContactPage = () => {
         project_type: formData.project,
         message: formData.message,
       };
-
+  
       console.log("Submitting form data:", requestBody);
-
-      const response = await fetch(
+  
+      const response = await axios.post(
         "https://test-domain-devunity.com/api/v1/contact",
+        requestBody,
         {
-          method: "POST",
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
             "X-Requested-With": "XMLHttpRequest",
           },
-          credentials: "include",
-          body: JSON.stringify(requestBody),
+          withCredentials: true, // بدل credentials: 'include'
         }
       );
-
-      console.log("Response status:", response);
-      console.log("Response headers:", response.headers);
-
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log("Success response:", responseData);
-        setSubmitted(true);
-
-        // Reset form after 3 seconds
-        setTimeout(() => {
-          setSubmitted(false);
-          setFormData({
-            name: "",
-            email: "",
-            project: "",
-            message: "",
-          });
-        }, 3000);
-
-        // Returning response data after a successful submission
-        return responseData;
-      } else {
-        const errorData = await response.text();
-        console.error("API Error Response:", errorData);
-        console.error("Response status:", response.status);
-
-        if (response.status === 419) {
-          throw new Error(
-            "CSRF token expired. Please refresh the page and try again."
-          );
-        } else {
-          throw new Error(
-            `API request failed with status ${response.status}: ${errorData}`
-          );
-        }
-      }
-    } catch (error) {
+  
+      console.log("Success response:", response.data);
+      setSubmitted(true);
+  
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          name: "",
+          email: "",
+          project: "",
+          message: "",
+        });
+      }, 3000);
+  
+      return response.data;
+    } catch (error: any) {
       console.error("Error submitting form:", error);
-
+  
       const errorMessage =
-        error instanceof Error ? error.message : "Unknown error occurred";
-
+        error?.response?.data?.message || error.message || "Unknown error";
+  
       if (errorMessage.includes("CSRF token expired")) {
         alert(
           "Session expired. Please refresh the page and try submitting the form again."
@@ -113,13 +91,13 @@ const ContactPage = () => {
           "Failed to submit form. Please try again or contact us directly at info@devunity.co"
         );
       }
-
-      // Optionally return the error message if needed
+  
       return { error: errorMessage };
     } finally {
       setIsSubmitting(false);
     }
   };
+  
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
