@@ -13,87 +13,118 @@ import {
 const services = [
   {
     id: "01",
-    label: "Document Support",
-    description: "Your journey",
+    label: "iOS Development",
+    description: "Build seamless apps for Apple users",
     icon: FolderCheck,
     subPoints: [
-      "Issue key",
-      "Legal transla4ons by embassy-cer4fied translators",
-      "Cer4fica4on and notariza4on of documents",
-      "Embassy aPesta4on coordina4on and tracking",
-      "personal checklist and real-4me tracking system so you never miss a step via your LinkedMed portal",
+      "Native Swift & Objective-C development",
+      "Integration with Apple services (HealthKit, ARKit, etc.)",
+      "App Store deployment & optimization",
+      "Performance tuning for high-end iPhones/iPads",
+      "Secure data handling with Keychain and Face ID/Touch ID",
     ],
-    quoteMessage: "LinkedMed handled",
+    quoteMessage: "Our iOS experts deliver unmatched performance",
   },
   {
     id: "02",
-    label: "Language Training",
-    description: "Language proficiency",
-    icon: GraduationCap,
-
+    label: "Android Development",
+    description: "Reach millions with robust Android apps",
+    icon: FolderCheck,
     subPoints: [
-      " German language courses from A1 to C2 levels",
-      "Scien4fic language course prepara4on for the Fachsprachprüfung",
-      "Scien4fic language course prepara4on for the Kenntnisprüfung",
-      "Mock tests, interac4ve lessons, and progress tracking",
-      "Speaking prac4ce and real-world scenarios",
-      "Personalized learning paths for faster improvement",
-      "Everday Interac4ons",
-      "Speaking prac4ce",
-      "Exam simula4ons",
-      "24/7",
+      "Kotlin & Java development for all devices",
+      "Support for tablets, wearables, and foldables",
+      "Google Play Store compliance & publishing",
+      "Firebase integration (notifications, analytics, auth)",
+      "Custom UI for diverse Android screen sizes",
     ],
-    quoteMessage: "Thanks to LinkedMed",
+    quoteMessage: "We bring your Android vision to life",
   },
   {
     id: "03",
-    label: "Visa & Embassy",
-    description: "We turn",
-    icon: FileText,
-    subPoints: ["Complete", "Scheduling", "Embassy", "Family", "Pre-departure"],
-    quoteMessage:
-      "💬 LinkedMed walked me through every embassy step—I felt supported at every moment",
+    label: "Web Development",
+    description: "Fast, responsive, and scalable websites",
+    icon: FolderCheck,
+    subPoints: [
+      "Frontend with React, Next.js, Vue, or Angular",
+      "Backend using Node.js, Laravel, or Django",
+      "SEO-friendly and mobile-optimized architecture",
+      "API development & third-party integrations",
+      "Security-focused development (SSL, OAuth2, etc.)",
+    ],
+    quoteMessage: "We code with performance and UX in mind",
   },
   {
     id: "04",
-    label: "Job Placement",
-    description: "just",
-    icon: Briefcase,
+    label: "UI/UX Design",
+    description: "Designs that convert and captivate",
+    icon: FolderCheck,
     subPoints: [
-      "German-standard",
-      "Professional profile review and op4miza4on",
-      "Personalized job matching with trusted hospitals and clinics",
-      "Job interview prepara4on and mock sessions",
-      "Interview prepara4on tailored for German medical recruiters",
-      "Contract",
-      "Licensing, creden4aling, and post-hiring support",
-      "Contract nego4a4on and final review",
+      "User research & journey mapping",
+      "Wireframes, mockups, and prototypes (Figma, Adobe XD)",
+      "Design systems and style guides",
+      "Usability testing and accessibility optimization",
+      "Interactive UI animations and transitions",
     ],
-    quoteMessage: "Why it maPers",
+    quoteMessage: "Great design isn't decoration—it's strategy",
   },
   {
     id: "05",
-    label: "Relocation Support",
-    description: "Moving abroad",
-    icon: Plane,
+    label: "Quality Assurance Testing",
+    description: "Bug-free is our default",
+    icon: FolderCheck,
     subPoints: [
-      "Travel planning and pre-departure orienta4on",
-      "Visa guidance and Ausländerbehörde interview prepara4on",
-      "Housing search assistance and reloca4on logis4cs",
-      "School applica4on support for your children",
-      "Assistance with obtaining driving licenses in Germany",
-      "Family reunion visa and documenta4on assistance",
-      "First-week checklist and cultural orienta4on",
-      "Support with integra4on services and language immersion",
-      "Post-arrival support and regular check-ins",
-      "Guidance on long-term residency and ci4zenship pathways",
-      "Cultural integra4on support and access to local services.",
-      "Ci4zenship and long-term residency advisory.",
-      "Ongoing",
+      "Automated testing (unit, integration, E2E)",
+      "Manual testing with real-world scenarios",
+      "Cross-platform & browser compatibility checks",
+      "Performance and load testing",
+      "Regression testing before every release",
     ],
-    quoteMessage: "They didn't",
+    quoteMessage: "We test like your users would",
+  },
+  {
+    id: "06",
+    label: "Product Launch",
+    description: "Your go-to-market partner",
+    icon: FolderCheck,
+    subPoints: [
+      "Launch strategy & timeline planning",
+      "App Store / Play Store optimization (ASO)",
+      "Beta testing coordination",
+      "Analytics setup (Google, Mixpanel, etc.)",
+      "Launch-day support and bug resolution",
+    ],
+    quoteMessage: "We launch products that make noise",
+  },
+  {
+    id: "07",
+    label: "IT Consulting",
+    description: "Strategic insights for tech growth",
+    icon: FolderCheck,
+    subPoints: [
+      "Digital transformation planning",
+      "Cloud migration and infrastructure audit",
+      "Technology stack evaluation",
+      "Scalability and architecture review",
+      "Security and compliance consulting",
+    ],
+    quoteMessage: "Consulting that drives impact—not reports",
+  },
+  {
+    id: "08",
+    label: "Content Writing",
+    description: "Words that sell, tell, and rank",
+    icon: FolderCheck,
+    subPoints: [
+      "Website & landing page copywriting",
+      "SEO-optimized blog articles",
+      "Technical documentation and help guides",
+      "Product descriptions and UX microcopy",
+      "Email campaigns and social media content",
+    ],
+    quoteMessage: "We write content that speaks your brand",
   },
 ];
+
 
 const MedicalServicesTimeline = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -280,9 +311,8 @@ const MedicalServicesTimeline = () => {
       return `
         M ${centerX} 0 
         L ${centerX} ${height * 0.1} 
-        Q ${centerX} ${height * 0.12}, ${centerX + curveRadius} ${
-        height * 0.12
-      } 
+        Q ${centerX} ${height * 0.12}, ${centerX + curveRadius} ${height * 0.12
+        } 
         L ${rightX - curveRadius} ${height * 0.12} 
         Q ${rightX} ${height * 0.12}, ${rightX} ${height * 0.14} 
         L ${rightX} ${height * 0.36} 
@@ -351,11 +381,11 @@ const MedicalServicesTimeline = () => {
       <div className="relative z-10 min-h-dvh -mt-[clamp(10px,7vw,100px)] flex flex-col items-center justify-center text-center">
         <div className="flex items-center justify-center text-center gap-3 mb-8">
           <Sparkles className="w-10 h-10 text-[#00ce93]" />
-          <h1 className="text-4xl md:text-6xl font-bold text-white">Service</h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-white">Services</h1>
           <Sparkles className="w-10 h-10 text-[#00ce93]" />
         </div>
         <p className="text-white text-lg md:text-xl max-w-2xl mx-auto px-4 text-justify">
-          At
+          Full Development Cycle
         </p>
 
         {/* Optional scroll indicator */}
@@ -420,21 +450,18 @@ const MedicalServicesTimeline = () => {
             return (
               <div
                 key={service.id}
-                className={`absolute cursor-pointer transition-all duration-700 ease-out ${
-                  inRange ? "opacity-100" : "opacity-30"
-                } ${
-                  isActive ? "scale-110" : inRange ? "scale-100" : "scale-85"
-                }`}
+                className={`absolute cursor-pointer transition-all duration-700 ease-out ${inRange ? "opacity-100" : "opacity-30"
+                  } ${isActive ? "scale-110" : inRange ? "scale-100" : "scale-85"
+                  }`}
                 style={{
                   top: y,
                   left: x,
-                  transform: `translate(-50%, -50%) ${
-                    isActive
+                  transform: `translate(-50%, -50%) ${isActive
                       ? "translateY(-12px)"
                       : inRange
-                      ? "translateY(0px)"
-                      : "translateY(8px)"
-                  }`,
+                        ? "translateY(0px)"
+                        : "translateY(8px)"
+                    }`,
                 }}
                 onClick={() => scrollToPoint(idx)}
               >
@@ -443,11 +470,10 @@ const MedicalServicesTimeline = () => {
                   <div
                     className={`
                     px-3 py-1 rounded-full text-xs font-mono tracking-wider transition-all duration-500
-                    ${
-                      isActive
+                    ${isActive
                         ? "bg-[#00ce93]/20 text-white border border-[#00ce93]/50"
                         : "bg-white/5 text-white/60 border border-white/10"
-                    }
+                      }
                   `}
                   >
                     {service.id}
@@ -457,11 +483,10 @@ const MedicalServicesTimeline = () => {
                   <div
                     className={`
                     group relative backdrop-blur-xl rounded-2xl transition-all duration-700 transform
-                    ${
-                      isActive
+                    ${isActive
                         ? "bg-white/15 shadow-2xl border border-white/30 scale-105"
                         : "bg-white/5 shadow-lg border border-white/10 hover:bg-white/10"
-                    }
+                      }
                   `}
                   >
                     {/* Content */}
@@ -469,11 +494,10 @@ const MedicalServicesTimeline = () => {
                       <div
                         className={`
                         p-2 rounded-xl transition-all duration-500 
-                        ${
-                          isActive
+                        ${isActive
                             ? "bg-[#00ce93] shadow-lg"
                             : "bg-[#00ce93]/80"
-                        }
+                          }
                       `}
                       >
                         <Icon
@@ -604,24 +628,28 @@ const MedicalServicesTimeline = () => {
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
-                <span className="text-white/90 leading-relaxed">Cash</span>
+                <span className="text-white/90 leading-relaxed">
+                  Cash rewards for every successful referral
+                </span>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
                 <span className="text-white/90 leading-relaxed">
-                  A dedicated
+                  A dedicated community that supports your journey
                 </span>
               </div>
             </div>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
-                <span className="text-white/90 leading-relaxed">Lifelong</span>
+                <span className="text-white/90 leading-relaxed">
+                  Lifelong connections and networking opportunities
+                </span>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
                 <span className="text-white/90 leading-relaxed">
-                  Invitations
+                  Invitations to exclusive LinkedMed events
                 </span>
               </div>
             </div>
@@ -632,7 +660,8 @@ const MedicalServicesTimeline = () => {
             <div className="flex items-start gap-3">
               <span className="text-2xl">💬</span>
               <blockquote className="text-white/90 italic text-lg leading-relaxed">
-                My friend
+                “I referred a friend, and now we’re both working our dream jobs in
+                Germany. LinkedMed made it seamless—and rewarding!”
               </blockquote>
             </div>
           </div>
@@ -642,12 +671,14 @@ const MedicalServicesTimeline = () => {
             <div className="flex items-center justify-center gap-2 mb-4">
               <span className="text-2xl">🎉</span>
               <p className="text-white/90 text-lg md:text-xl leading-relaxed max-w-2xl">
-                LinkedMed is more
+                At LinkedMed, you’re not just a client—you’re part of a growing
+                global family. Let’s grow together.
               </p>
             </div>
           </div>
         </div>
       </div>
+
 
       {/* Mouse Shadow */}
       <div
