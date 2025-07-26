@@ -78,7 +78,7 @@ const services = [
     ],
     quoteMessage: "We test like your users would",
   }
-  
+
 ];
 
 
@@ -323,7 +323,7 @@ const MedicalServicesTimeline = () => {
     <main
       className="overflow-x-hidden relative z-0 -top-11"
       style={{
-        backgroundImage: "url('/home/heroBg.png')",
+        background: "linear-gradient(135deg, #006400, #000000)", // dark green to black
         backgroundSize: "150% 150%",
       }}
     >
@@ -413,10 +413,10 @@ const MedicalServicesTimeline = () => {
                   top: y,
                   left: x,
                   transform: `translate(-50%, -50%) ${isActive
-                      ? "translateY(-12px)"
-                      : inRange
-                        ? "translateY(0px)"
-                        : "translateY(8px)"
+                    ? "translateY(-12px)"
+                    : inRange
+                      ? "translateY(0px)"
+                      : "translateY(8px)"
                     }`,
                 }}
                 onClick={() => scrollToPoint(idx)}
@@ -572,10 +572,10 @@ const MedicalServicesTimeline = () => {
           {/* Header */}
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Referral & Community Engagement
+              Technical Excellence & Ongoing Support
             </h2>
             <p className="text-xl md:text-2xl text-[#00ce93] font-medium">
-              Because You&rsquo;re Family
+              Powering Your Growth with Precision
             </p>
           </div>
 
@@ -585,13 +585,13 @@ const MedicalServicesTimeline = () => {
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
                 <span className="text-white/90 leading-relaxed">
-                  Cash rewards for every successful referral
+                  End-to-end development & deployment services
                 </span>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
                 <span className="text-white/90 leading-relaxed">
-                  A dedicated community that supports your journey
+                  Scalable infrastructure tailored to your business
                 </span>
               </div>
             </div>
@@ -599,13 +599,13 @@ const MedicalServicesTimeline = () => {
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
                 <span className="text-white/90 leading-relaxed">
-                  Lifelong connections and networking opportunities
+                  24/7 technical support & monitoring
                 </span>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
                 <span className="text-white/90 leading-relaxed">
-                  Invitations to exclusive LinkedMed events
+                  Security-first approach in every solution we build
                 </span>
               </div>
             </div>
@@ -616,8 +616,8 @@ const MedicalServicesTimeline = () => {
             <div className="flex items-start gap-3">
               <span className="text-2xl">💬</span>
               <blockquote className="text-white/90 italic text-lg leading-relaxed">
-                “I referred a friend, and now we’re both working our dream jobs in
-                Germany. LinkedMed made it seamless—and rewarding!”
+                “Their team revamped our platform in just weeks. Fast, secure, and
+                built exactly to spec. Can’t imagine working with anyone else.”
               </blockquote>
             </div>
           </div>
@@ -625,15 +625,16 @@ const MedicalServicesTimeline = () => {
           {/* Closing Statement */}
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <span className="text-2xl">🎉</span>
+              <span className="text-2xl">🚀</span>
               <p className="text-white/90 text-lg md:text-xl leading-relaxed max-w-2xl">
-                At LinkedMed, you’re not just a client—you’re part of a growing
-                global family. Let’s grow together.
+                We don’t just build software—we build partnerships that grow with your
+                vision. Let’s engineer the future together.
               </p>
             </div>
           </div>
         </div>
       </div>
+
 
 
       {/* Mouse Shadow */}
