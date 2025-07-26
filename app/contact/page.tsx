@@ -21,26 +21,72 @@ const ContactPage = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    
+    try {
+      const requestBody = {
+        name: formData.name,
+        email: formData.email,
+        projectType: formData.project,
+        message: formData.message
+      };
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log('Submitting form data:', requestBody);
 
-    setIsSubmitting(false);
-    setSubmitted(true);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        project: '',
-        message: ''
+      const response = await fetch('https://test-domain-devunity.com/api/v1/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        credentials: 'include',
+        body: JSON.stringify(requestBody)
       });
-    }, 3000);
+
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Success response:', responseData);
+        setSubmitted(true);
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({
+            name: '',
+            email: '',
+            project: '',
+            message: ''
+          });
+        }, 3000);
+      } else {
+        const errorData = await response.text();
+        console.error('API Error Response:', errorData);
+        console.error('Response status:', response.status);
+        
+        if (response.status === 419) {
+          throw new Error('CSRF token expired. Please refresh the page and try again.');
+        } else {
+          throw new Error(`API request failed with status ${response.status}: ${errorData}`);
+        }
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      
+      if (errorMessage.includes('CSRF token expired')) {
+        alert('Session expired. Please refresh the page and try submitting the form again.');
+      } else {
+        alert('Failed to submit form. Please try again or contact us directly at info@devunity.co');
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -117,7 +163,7 @@ const ContactPage = () => {
                   <p className="text-gray-600 text-lg">We'll get back to you within 24 hours with a detailed proposal.</p>
                 </div>
               ) : (
-                <div className="space-y-8">
+                <form onSubmit={handleSubmit} className="space-y-8">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-semibold mb-3 text-gray-700">
@@ -201,7 +247,7 @@ const ContactPage = () => {
                       </>
                     )}
                   </button>
-                </div>
+                </form>
               )}
 
               <div className="pt-6">
