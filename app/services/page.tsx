@@ -2,10 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import {
-  GraduationCap,
-  FileText,
-  Briefcase,
-  Plane,
+
   FolderCheck,
   Sparkles,
 } from "lucide-react";
