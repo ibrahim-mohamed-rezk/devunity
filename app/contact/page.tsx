@@ -1,89 +1,121 @@
 "use client";
 
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Code, Users, Zap, Clock } from 'lucide-react';
+import { useState } from "react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Code,
+  Users,
+  Zap,
+  Clock,
+} from "lucide-react";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    project: '',
-    message: ''
+    name: "",
+    email: "",
+    project: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       const requestBody = {
-        name: formData.name,
+        full_name: formData.name,
         email: formData.email,
-        projectType: formData.project,
-        message: formData.message
+        project_type: formData.project,
+        message: formData.message,
       };
 
-      console.log('Submitting form data:', requestBody);
+      console.log("Submitting form data:", requestBody);
 
-      const response = await fetch('https://test-domain-devunity.com/api/v1/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest',
-        },
-        credentials: 'include',
-        body: JSON.stringify(requestBody)
-      });
+      const response = await fetch(
+        "https://test-domain-devunity.com/api/v1/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "X-Requested-With": "XMLHttpRequest",
+          },
+          credentials: "include",
+          body: JSON.stringify(requestBody),
+        }
+      );
 
-      console.log('Response status:', response.status);
-      console.log('Response headers:', response.headers);
+      console.log("Response status:", response);
+      console.log("Response headers:", response.headers);
 
       if (response.ok) {
         const responseData = await response.json();
-        console.log('Success response:', responseData);
+        console.log("Success response:", responseData);
         setSubmitted(true);
+
         // Reset form after 3 seconds
         setTimeout(() => {
           setSubmitted(false);
           setFormData({
-            name: '',
-            email: '',
-            project: '',
-            message: ''
+            name: "",
+            email: "",
+            project: "",
+            message: "",
           });
         }, 3000);
+
+        // Returning response data after a successful submission
+        return responseData;
       } else {
         const errorData = await response.text();
-        console.error('API Error Response:', errorData);
-        console.error('Response status:', response.status);
-        
+        console.error("API Error Response:", errorData);
+        console.error("Response status:", response.status);
+
         if (response.status === 419) {
-          throw new Error('CSRF token expired. Please refresh the page and try again.');
+          throw new Error(
+            "CSRF token expired. Please refresh the page and try again."
+          );
         } else {
-          throw new Error(`API request failed with status ${response.status}: ${errorData}`);
+          throw new Error(
+            `API request failed with status ${response.status}: ${errorData}`
+          );
         }
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
-      
-      if (errorMessage.includes('CSRF token expired')) {
-        alert('Session expired. Please refresh the page and try submitting the form again.');
+      console.error("Error submitting form:", error);
+
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error occurred";
+
+      if (errorMessage.includes("CSRF token expired")) {
+        alert(
+          "Session expired. Please refresh the page and try submitting the form again."
+        );
       } else {
-        alert('Failed to submit form. Please try again or contact us directly at info@devunity.co');
+        alert(
+          "Failed to submit form. Please try again or contact us directly at info@devunity.co"
+        );
       }
+
+      // Optionally return the error message if needed
+      return { error: errorMessage };
     } finally {
       setIsSubmitting(false);
     }
@@ -91,10 +123,8 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-
-
       {/* Hero Section */}
-      <section className="px-6 py-24 text-center relative overflow-hidden">
+      <section className="px-6 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-transparent to-blue-50"></div>
         <div className="max-w-5xl mx-auto relative z-10">
           <div className="mb-8">
@@ -104,32 +134,40 @@ const ContactPage = () => {
             </div>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-            <span className="text-gray-900">Let's Build Something</span>
+            <span className="text-gray-900">Let&apos;s Build Something</span>
             <span className="block mt-2 bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
               Amazing Together
             </span>
           </h1>
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Ready to transform your ideas into powerful digital solutions? Our team of expert developers is here to bring your vision to life with cutting-edge technology and innovative approaches.
+            Ready to transform your ideas into powerful digital solutions? Our
+            team of expert developers is here to bring your vision to life with
+            cutting-edge technology and innovative approaches.
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <div className="flex items-center gap-3 px-6 py-3 bg-white shadow-lg rounded-full border border-gray-100">
               <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
                 <Clock className="w-4 h-4 text-green-600" />
               </div>
-              <span className="font-medium text-gray-700">24h Response Time</span>
+              <span className="font-medium text-gray-700">
+                24h Response Time
+              </span>
             </div>
             <div className="flex items-center gap-3 px-6 py-3 bg-white shadow-lg rounded-full border border-gray-100">
               <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                 <Users className="w-4 h-4 text-blue-600" />
               </div>
-              <span className="font-medium text-gray-700">100+ Projects Delivered</span>
+              <span className="font-medium text-gray-700">
+                100+ Projects Delivered
+              </span>
             </div>
             <div className="flex items-center gap-3 px-6 py-3 bg-white shadow-lg rounded-full border border-gray-100">
               <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
                 <Zap className="w-4 h-4 text-purple-600" />
               </div>
-              <span className="font-medium text-gray-700">Agile Development</span>
+              <span className="font-medium text-gray-700">
+                Agile Development
+              </span>
             </div>
           </div>
         </div>
@@ -139,7 +177,6 @@ const ContactPage = () => {
       <section className="px-6 py-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-24">
-
             {/* Contact Form */}
             <div className="space-y-10">
               <div className="space-y-4">
@@ -150,7 +187,8 @@ const ContactPage = () => {
                   Start Your Project
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  Tell us about your project and we'll get back to you within 24 hours with a detailed proposal tailored to your needs.
+                  Tell us about your project and we&apos;ll get back to you within 24
+                  hours with a detailed proposal tailored to your needs.
                 </p>
               </div>
 
@@ -159,8 +197,13 @@ const ContactPage = () => {
                   <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                     <Send className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-3xl font-bold text-green-600 mb-3">Message Sent!</h3>
-                  <p className="text-gray-600 text-lg">We'll get back to you within 24 hours with a detailed proposal.</p>
+                  <h3 className="text-3xl font-bold text-green-600 mb-3">
+                    Message Sent!
+                  </h3>
+                  <p className="text-gray-600 text-lg">
+                    We&apos;ll get back to you within 24 hours with a detailed
+                    proposal.
+                  </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-8">
@@ -257,40 +300,43 @@ const ContactPage = () => {
                     <div className="w-10 h-10 bg-indigo-500 rounded-xl flex items-center justify-center">
                       <Users className="w-5 h-5 text-white" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900">Why Choose Us</h3>
+                    <h3 className="text-2xl font-bold text-gray-900">
+                      Why Choose Us
+                    </h3>
                   </div>
                   <ul className="space-y-6">
                     {[
                       {
                         title: "Client-Centric Approach",
-                        desc: "We listen, understand, and tailor solutions that align with your vision."
+                        desc: "We listen, understand, and tailor solutions that align with your vision.",
                       },
                       {
                         title: "Transparent Process",
-                        desc: "We keep you in the loop at every stage to ensure trust and clarity."
+                        desc: "We keep you in the loop at every stage to ensure trust and clarity.",
                       },
                       {
                         title: "Experienced Team",
-                        desc: "Skilled professionals with a proven track record in delivering scalable tech."
+                        desc: "Skilled professionals with a proven track record in delivering scalable tech.",
                       },
                       {
                         title: "Ongoing Support",
-                        desc: "We're here post-launch to help you scale and grow with confidence."
-                      }
+                        desc: "We're here post-launch to help you scale and grow with confidence.",
+                      },
                     ].map((item, index) => (
                       <li key={index} className="flex items-start gap-4">
                         <div className="w-10 h-10 flex items-center justify-center bg-indigo-100 text-indigo-600 font-bold rounded-full shadow-sm">
                           {index + 1}
                         </div>
                         <div>
-                          <h4 className="text-lg font-semibold text-gray-800 mb-1">{item.title}</h4>
+                          <h4 className="text-lg font-semibold text-gray-800 mb-1">
+                            {item.title}
+                          </h4>
                           <p className="text-gray-600 text-sm">{item.desc}</p>
                         </div>
                       </li>
                     ))}
                   </ul>
                 </div>
-
               </div>
             </div>
 
@@ -302,7 +348,9 @@ const ContactPage = () => {
                   <div className="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center">
                     <Mail className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Get In Touch</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Get In Touch
+                  </h3>
                 </div>
                 <div className="space-y-8">
                   <div className="flex items-start gap-5">
@@ -322,7 +370,9 @@ const ContactPage = () => {
                     <div>
                       <h4 className="font-bold text-gray-900 mb-2">Call Us</h4>
                       <p className="text-gray-600 text-lg">+201031377515</p>
-                      <p className="text-sm text-gray-500">Mon-Fri 9AM-6PM EST</p>
+                      <p className="text-sm text-gray-500">
+                        Mon-Fri 9AM-6PM EST
+                      </p>
                     </div>
                   </div>
 
@@ -344,21 +394,52 @@ const ContactPage = () => {
                   <div className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center">
                     <Code className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900">Our Services</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Our Services
+                  </h3>
                 </div>
                 <div className="grid gap-6">
                   {[
-                    { icon: Code, title: "Web Development", desc: "Full-stack web applications", color: "green" },
-                    { icon: Phone, title: "Mobile Apps", desc: "iOS & Android development", color: "blue" },
-                    { icon: Zap, title: "API Integration", desc: "Third-party integrations", color: "purple" },
-                    { icon: Users, title: "Team Augmentation", desc: "Dedicated developers", color: "orange" }
+                    {
+                      icon: Code,
+                      title: "Web Development",
+                      desc: "Full-stack web applications",
+                      color: "green",
+                    },
+                    {
+                      icon: Phone,
+                      title: "Mobile Apps",
+                      desc: "iOS & Android development",
+                      color: "blue",
+                    },
+                    {
+                      icon: Zap,
+                      title: "API Integration",
+                      desc: "Third-party integrations",
+                      color: "purple",
+                    },
+                    {
+                      icon: Users,
+                      title: "Team Augmentation",
+                      desc: "Dedicated developers",
+                      color: "orange",
+                    },
                   ].map((service, index) => (
-                    <div key={index} className="flex items-center gap-5 p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
-                      <div className={`w-12 h-12 bg-${service.color}-100 rounded-2xl flex items-center justify-center flex-shrink-0`}>
-                        <service.icon className={`w-6 h-6 text-${service.color}-600`} />
+                    <div
+                      key={index}
+                      className="flex items-center gap-5 p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100"
+                    >
+                      <div
+                        className={`w-12 h-12 bg-${service.color}-100 rounded-2xl flex items-center justify-center flex-shrink-0`}
+                      >
+                        <service.icon
+                          className={`w-6 h-6 text-${service.color}-600`}
+                        />
                       </div>
                       <div>
-                        <h4 className="font-bold text-gray-900 mb-1">{service.title}</h4>
+                        <h4 className="font-bold text-gray-900 mb-1">
+                          {service.title}
+                        </h4>
                         <p className="text-gray-600">{service.desc}</p>
                       </div>
                     </div>
@@ -372,7 +453,9 @@ const ContactPage = () => {
                   <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center shadow-md">
                     <Clock className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-3xl font-semibold text-gray-900">Our Process</h3>
+                  <h3 className="text-3xl font-semibold text-gray-900">
+                    Our Process
+                  </h3>
                 </div>
 
                 <div className="space-y-8 relative">
@@ -382,7 +465,10 @@ const ContactPage = () => {
                     "Development & Testing",
                     "Deployment & Support",
                   ].map((step, index) => (
-                    <div key={index} className="flex items-start gap-6 relative group">
+                    <div
+                      key={index}
+                      className="flex items-start gap-6 relative group"
+                    >
                       {/* Line Connector */}
                       {index < 3 && (
                         <div className="absolute left-5 top-12 h-full w-0.5 bg-emerald-200 z-0" />
@@ -395,28 +481,29 @@ const ContactPage = () => {
 
                       {/* Step Title */}
                       <div>
-                        <h4 className="text-lg font-medium text-gray-800">{step}</h4>
+                        <h4 className="text-lg font-medium text-gray-800">
+                          {step}
+                        </h4>
                         <p className="text-sm text-gray-500 mt-1 max-w-md">
                           {/* Optional: Add descriptions here for each step if needed */}
-                          {[
-                            "Understanding your needs and defining project scope.",
-                            "Crafting user-centric designs and interactive prototypes.",
-                            "Bringing ideas to life through clean, efficient code.",
-                            "Launching your product and providing ongoing support.",
-                          ][index]}
+                          {
+                            [
+                              "Understanding your needs and defining project scope.",
+                              "Crafting user-centric designs and interactive prototypes.",
+                              "Bringing ideas to life through clean, efficient code.",
+                              "Launching your product and providing ongoing support.",
+                            ][index]
+                          }
                         </p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
-
             </div>
           </div>
         </div>
       </section>
-
-
     </div>
   );
 };
