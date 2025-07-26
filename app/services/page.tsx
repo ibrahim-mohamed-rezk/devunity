@@ -304,7 +304,7 @@ const MedicalServicesTimeline = () => {
   if (dimensions.width === 0 || dimensions.height === 0) {
     return (
       <main className="min-h-screen bg-slate-900 overflow-x-hidden relative flex items-center justify-center">
-        <div className="flex items-center gap-3 text-white/70">
+        <div className="flex items-center gap-3 text-dark/70">
           <div className="w-2 h-2 bg-[#00ce93] rounded-full animate-pulse"></div>
           <div
             className="w-2 h-2 bg-[#00ce93]/80 rounded-full animate-pulse"
@@ -337,15 +337,15 @@ const MedicalServicesTimeline = () => {
       <div className="relative z-10 min-h-dvh -mt-[clamp(10px,7vw,100px)] flex flex-col items-center justify-center text-center">
         <div className="flex items-center justify-center text-center gap-3 mb-8">
           <Sparkles className="w-10 h-10 text-[#00ce93]" />
-          <h1 className="text-4xl md:text-6xl font-bold text-white">Services</h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-dark">Services</h1>
           <Sparkles className="w-10 h-10 text-[#00ce93]" />
         </div>
-        <p className="text-white text-lg md:text-xl max-w-2xl mx-auto px-4 text-justify">
+        <p className="text-dark text-lg md:text-xl max-w-2xl mx-auto px-4 text-justify">
           Full Development Cycle
         </p>
 
         {/* Optional scroll indicator */}
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white/60">
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-dark/60">
           <span className="text-sm mb-2">Scroll to explore</span>
           <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
@@ -427,8 +427,8 @@ const MedicalServicesTimeline = () => {
                     className={`
                     px-3 py-1 rounded-full text-xs font-mono tracking-wider transition-all duration-500
                     ${isActive
-                        ? "bg-[#00ce93]/20 text-white border border-[#00ce93]/50"
-                        : "bg-white/5 text-white/60 border border-white/10"
+                        ? "bg-[#00ce93]/20 text-dark border border-[#00ce93]/50"
+                        : "bg-white/5 text-dark/60 border border-white/10"
                       }
                   `}
                   >
@@ -458,15 +458,15 @@ const MedicalServicesTimeline = () => {
                       >
                         <Icon
                           size={isMobile ? 18 : 22}
-                          className="text-white"
+                          className="text-dark"
                         />
                       </div>
                       <div>
-                        <h3 className="font-bold text-white text-sm md:text-base whitespace-nowrap">
+                        <h3 className="font-bold text-dark text-sm md:text-base whitespace-nowrap">
                           {service.label}
                         </h3>
                         {isActive && (
-                          <p className="text-white/70 text-xs mt-1 max-w-48 hidden md:block">
+                          <p className="text-dark/70 text-xs mt-1 max-w-48 hidden md:block">
                             {service.description}
                           </p>
                         )}
@@ -500,13 +500,13 @@ const MedicalServicesTimeline = () => {
             <div className="flex justify-between items-center  gap-4 mb-6">
               <div className="flex gap-3">
                 <div className="p-3 rounded-xl bg-[#00ce93]">
-                  <modalService.icon size={28} className="text-white" />
+                  <modalService.icon size={28} className="text-dark" />
                 </div>
                 <div>
                   <div className="text-[#00ce93] text-sm font-mono">
                     {modalService.id}
                   </div>
-                  <h3 className="font-bold text-white text-xl md:text-2xl">
+                  <h3 className="font-bold text-dark text-xl md:text-2xl">
                     {modalService.label}
                   </h3>
                 </div>
@@ -514,7 +514,7 @@ const MedicalServicesTimeline = () => {
               <div>
                 <button
                   onClick={() => setShowModal(false)}
-                  className="ml-auto p-2 text-white/70 hover:text-white transition-colors"
+                  className="ml-auto p-2 text-dark/70 hover:text-dark transition-colors"
                   aria-label="Close modal"
                 >
                   <svg
@@ -537,20 +537,20 @@ const MedicalServicesTimeline = () => {
             </div>
 
             {/* Description */}
-            <p className="text-white/80 text-lg md:text-xl mb-8 leading-relaxed">
+            <p className="text-dark/80 text-lg md:text-xl mb-8 leading-relaxed">
               {modalService.description}
             </p>
 
             {/* Key Services */}
             <div className="mb-8">
-              <h4 className="text-white font-semibold text-lg mb-4">
+              <h4 className="text-dark font-semibold text-lg mb-4">
                 Key Services:
               </h4>
               <ul className="grid gap-4 sm:grid-cols-1 md:grid-cols-2">
                 {modalService.subPoints.map((point, pointIdx) => (
                   <li key={pointIdx} className="flex items-start gap-3 group">
                     <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
-                    <span className="text-white/80 group-hover:text-white transition-colors leading-relaxed">
+                    <span className="text-dark/80 group-hover:text-dark transition-colors leading-relaxed">
                       {point}
                     </span>
                   </li>
@@ -559,7 +559,7 @@ const MedicalServicesTimeline = () => {
             </div>
 
             {/* Testimonial */}
-            {/* <blockquote className="italic text-white/90 text-lg md:text-xl border-l-4 border-[#00ce93] pl-4 pt-1 mt-6">
+            {/* <blockquote className="italic text-dark/90 text-lg md:text-xl border-l-4 border-[#00ce93] pl-4 pt-1 mt-6">
               "{modalService.quoteMessage.replace(/^"|"$/g, "")}"
             </blockquote> */}
           </div>
@@ -571,7 +571,7 @@ const MedicalServicesTimeline = () => {
         <div className="bg-slate-800/40 backdrop-blur-xl rounded-3xl border border-white/10 p-8 md:p-12">
           {/* Header */}
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-dark mb-4">
               Technical Excellence & Ongoing Support
             </h2>
             <p className="text-xl md:text-2xl text-[#00ce93] font-medium">
@@ -584,13 +584,13 @@ const MedicalServicesTimeline = () => {
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
-                <span className="text-white/90 leading-relaxed">
+                <span className="text-dark/90 leading-relaxed">
                   End-to-end development & deployment services
                 </span>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
-                <span className="text-white/90 leading-relaxed">
+                <span className="text-dark/90 leading-relaxed">
                   Scalable infrastructure tailored to your business
                 </span>
               </div>
@@ -598,13 +598,13 @@ const MedicalServicesTimeline = () => {
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
-                <span className="text-white/90 leading-relaxed">
+                <span className="text-dark/90 leading-relaxed">
                   24/7 technical support & monitoring
                 </span>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full mt-2 bg-[#00ce93] flex-shrink-0"></div>
-                <span className="text-white/90 leading-relaxed">
+                <span className="text-dark/90 leading-relaxed">
                   Security-first approach in every solution we build
                 </span>
               </div>
@@ -615,7 +615,7 @@ const MedicalServicesTimeline = () => {
           <div className="bg-white/5 rounded-2xl p-6 mb-6 border border-white/10">
             <div className="flex items-start gap-3">
               <span className="text-2xl">💬</span>
-              <blockquote className="text-white/90 italic text-lg leading-relaxed">
+              <blockquote className="text-dark/90 italic text-lg leading-relaxed">
                 “Their team revamped our platform in just weeks. Fast, secure, and
                 built exactly to spec. Can’t imagine working with anyone else.”
               </blockquote>
@@ -626,7 +626,7 @@ const MedicalServicesTimeline = () => {
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 mb-4">
               <span className="text-2xl">🚀</span>
-              <p className="text-white/90 text-lg md:text-xl leading-relaxed max-w-2xl">
+              <p className="text-dark/90 text-lg md:text-xl leading-relaxed max-w-2xl">
                 We don’t just build software—we build partnerships that grow with your
                 vision. Let’s engineer the future together.
               </p>
