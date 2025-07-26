@@ -152,38 +152,41 @@ const Navbar = () => {
         </nav>
 
         {/* Hero Section */}
-        <div className="flex container mx-auto max-w-[930px] flex-col items-center justify-center z-10 relative mt-[200px]">
+        <div className="flex container mx-auto max-w-[930px] flex-col items-center justify-center z-999 relative mt-[200px]">
           <div className="border-[25px] mt-[100px] border-transparent p-[20px] relative">
             <div
               className="absolute w-full h-full top-0 left-0"
               style={{
                 borderRadius: "40px",
-                border: "32px solid #00CE93",
+                // border: "32px solid #00CE93",
                 mixBlendMode: "screen",
                 filter: "blur(112.5px)",
               }}
             ></div>
             <img className="" src="/siteLogo.png" alt="Logo" />
           </div>
-          {pathname === "/" &&
-          <div className="mt-[clamp(50px,3.64535vw,70px)]">
-            <h2 className="font-[800] text-[clamp(30px,2.60417vw,50px)] text-[var(--primary-color)] text-center">
-              Towards a distinctive digital future
-            </h2>
-            <p className="font-[400] text-[clamp(15px,1.3020335vw,25px)] text-white text-center">
-              We provide innovative software solutions, website and application
-              design that effectively achieve your business goals.
-            </p>
-          </div>}
+          {pathname === "/" && (
+            <div className="mt-[clamp(50px,3.64535vw,70px)]">
+              <h2 className="font-[800] text-[clamp(30px,2.60417vw,50px)] text-[var(--primary-color)] text-center">
+                Towards a distinctive digital future
+              </h2>
+              <p className="font-[400] text-[clamp(15px,1.3020335vw,25px)] text-white text-center">
+                We provide innovative software solutions, website and
+                application design that effectively achieve your business goals.
+              </p>
+            </div>
+          )}
 
-         {pathname === "/" && <div className="flex items-center gap-[30px] mt-[50px]">
-            <button className="bg-[var(--primary-color)] w-[clamp(130px,10.0520334vw,193px)] text-[clamp(15px,1.04165vw,20px)] text-white h-[clamp(55px,3.43754vw,66px)] rounded-[clamp(15px,1.04165vw,20px)]">
-              Contact us
-            </button>
-            <button className="border-[2px] border-[var(--primary-color)] w-[clamp(110px,8.59375vw,165px)] text-[clamp(15px,1.04165vw,20px)] text-white h-[clamp(55px,3.43754vw,66px)] rounded-[clamp(15px,1.04165vw,20px)]">
-              Services
-            </button>
-          </div>}
+          {pathname === "/" && (
+            <div className="flex items-center gap-[30px] mt-[50px]">
+              <button className="bg-[var(--primary-color)] w-[clamp(130px,10.0520334vw,193px)] text-[clamp(15px,1.04165vw,20px)] text-white h-[clamp(55px,3.43754vw,66px)] rounded-[clamp(15px,1.04165vw,20px)]">
+                Contact us
+              </button>
+              <button className="border-[2px] border-[var(--primary-color)] w-[clamp(110px,8.59375vw,165px)] text-[clamp(15px,1.04165vw,20px)] text-white h-[clamp(55px,3.43754vw,66px)] rounded-[clamp(15px,1.04165vw,20px)]">
+                Services
+              </button>
+            </div>
+          )}
         </div>
 
         {/* moon image */}
@@ -212,12 +215,12 @@ const Navbar = () => {
           }}
         />
         {/* header bottom blur */}
-        <div
+        {/* <div
           className="w-[200%] h-[80px] absolute bottom-[-30px] inset-x-[-20px] right-0 z-50 bg-white"
           style={{
             filter: "blur(5px)",
           }}
-        ></div>
+        ></div> */}
       </div>
     </header>
   );

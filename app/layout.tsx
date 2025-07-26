@@ -19,7 +19,7 @@ export default function RootLayout({
       <link rel="icon" href="/logo.png" />
       <body>
         <Navbar />
-        <main className="container pb-[50px]">{children}</main>
+        <main className="">{children}</main>
         <Footer />
       </body>
     </html>
