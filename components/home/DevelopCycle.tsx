@@ -97,28 +97,32 @@ const DevelopCycle = () => {
             key={data.id}
             onClick={() => openModal(data)}
             className="group relative cursor-pointer animate-in fade-in slide-in-from-bottom-8 duration-700"
-            style={{ 
+            style={{
               animationDelay: `${400 + index * 100}ms`,
-              animationFillMode: 'both'
+              animationFillMode: "both",
             }}
           >
             {/* Card */}
             <div className="bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl p-6 my-[1vw] h-25 flex flex-col justify-center items-center text-center transform group-hover:scale-105 transition-all duration-300 shadow-lg group-hover:shadow-xl hover:shadow-emerald-500/25">
               {/* Icon Circle */}
-              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white animate-in zoom-in duration-500 group-hover:rotate-12 transition-transform"
-                   style={{ 
-                     animationDelay: `${600 + index * 100}ms`,
-                     animationFillMode: 'both'
-                   }}>
+              <div
+                className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white animate-in zoom-in duration-500 group-hover:rotate-12 transition-transform"
+                style={{
+                  animationDelay: `${600 + index * 100}ms`,
+                  animationFillMode: "both",
+                }}
+              >
                 {data.icon}
               </div>
 
               {/* Title */}
-              <h3 className="text-gray-900 font-bold text-xl mt-4 group-hover:text-white transition-colors duration-300 animate-in fade-in slide-in-from-bottom-4 duration-600"
-                  style={{ 
-                    animationDelay: `${700 + index * 100}ms`,
-                    animationFillMode: 'both'
-                  }}>
+              <h3
+                className="text-gray-900 font-bold text-xl mt-4 group-hover:text-white transition-colors duration-300 animate-in fade-in slide-in-from-bottom-4 duration-600"
+                style={{
+                  animationDelay: `${700 + index * 100}ms`,
+                  animationFillMode: "both",
+                }}
+              >
                 {data.title}
               </h3>
 
@@ -152,7 +156,7 @@ const DevelopCycle = () => {
           onClick={closeModal}
         >
           <div
-            className="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto relative animate-in fade-in zoom-in slide-in-from-bottom-8 duration-500"
+            className="bg-white rounded-2xl max-w-3xl w-full max-h-[100vh] overflow-y-auto relative animate-in fade-in zoom-in slide-in-from-bottom-8 duration-500"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -178,36 +182,44 @@ const DevelopCycle = () => {
             </button>
 
             {/* Modal Content */}
-            <div className="p-8">
+            <div
+              className="p-8 "
+              style={{ backgroundImage: "url('/home/heroBg.png')" }}
+            >
               {/* Header with icon */}
               <div className="flex items-center gap-4 mb-6 animate-in fade-in slide-in-from-left-4 duration-500 delay-100">
                 <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-full flex items-center justify-center text-white animate-in zoom-in duration-600 delay-200">
                   {React.isValidElement(selectedCard.icon) &&
-                    React.cloneElement(selectedCard.icon as React.ReactElement<{ className?: string }>, {
-                      className: "w-8 h-8",
-                    })}
+                    React.cloneElement(
+                      selectedCard.icon as React.ReactElement<{
+                        className?: string;
+                      }>,
+                      {
+                        className: "w-8 h-8",
+                      }
+                    )}
                 </div>
-                <h2 className="text-3xl font-bold text-gray-900 animate-in fade-in slide-in-from-right-4 duration-500 delay-300">
+                <h2 className="text-3xl font-bold text-white animate-in fade-in slide-in-from-right-4 duration-500 delay-300">
                   {selectedCard.title}
                 </h2>
               </div>
 
               {/* Description */}
               <div className="prose prose-lg animate-in fade-in slide-in-from-bottom-4 duration-500 delay-400">
-                <p className="text-gray-600 leading-relaxed text-lg">
+                <p className="text-white font-bold leading-relaxed text-xl">
                   {selectedCard.description}
                 </p>
               </div>
 
               {/* Action Button */}
-              <div className="mt-8 flex justify-end animate-in fade-in slide-in-from-bottom-4 duration-500 delay-500">
+              {/* <div className="mt-8 flex justify-end animate-in fade-in slide-in-from-bottom-4 duration-500 delay-500">
                 <button
                   onClick={closeModal}
                   className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25"
                 >
                   Learn More
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

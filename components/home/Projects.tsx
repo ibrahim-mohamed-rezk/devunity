@@ -72,7 +72,7 @@ const Projects = ({ projectsData }: { projectsData: [ProjectCardTypes] }) => {
 
       {/* Projects Slider */}
       <div className={`
-        w-full mt-[90px] relative z-10 px-4
+        w-full mt-[90px] max-w-[1920px] mx-auto relative z-10 px-4
         transition-all duration-1000 ease-out delay-300
         ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}
       `}>

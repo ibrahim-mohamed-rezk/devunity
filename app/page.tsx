@@ -3,7 +3,6 @@ import Projects from "@/components/home/Projects";
 // import Team from "@/components/home/Team";
 import { get } from "@/libs/axios/backEndServer";
 
-
 const getData = async () => {
   try {
     const response = await get("/home");
@@ -12,17 +11,14 @@ const getData = async () => {
     console.error("Error fetching home data:", error);
     return null;
   }
-}
+};
 
 export default async function Home() {
-
-
   const homeData = await getData();
 
-
   return (
-    <div className="mt-[100px]">
-      <DevelopCycle  />
+    <div className="mt-[100px] w-full ">
+      <DevelopCycle />
       {/* <Team owners={homeData?.owners} /> Pass the fetched data to Team */}
       <Projects projectsData={homeData?.projects} />
     </div>
