@@ -77,49 +77,7 @@ const services = [
       "Regression testing before every release",
     ],
     quoteMessage: "We test like your users would",
-  },
-  {
-    id: "06",
-    label: "Product Launch",
-    description: "Your go-to-market partner",
-    icon: FolderCheck,
-    subPoints: [
-      "Launch strategy & timeline planning",
-      "App Store / Play Store optimization (ASO)",
-      "Beta testing coordination",
-      "Analytics setup (Google, Mixpanel, etc.)",
-      "Launch-day support and bug resolution",
-    ],
-    quoteMessage: "We launch products that make noise",
-  },
-  {
-    id: "07",
-    label: "IT Consulting",
-    description: "Strategic insights for tech growth",
-    icon: FolderCheck,
-    subPoints: [
-      "Digital transformation planning",
-      "Cloud migration and infrastructure audit",
-      "Technology stack evaluation",
-      "Scalability and architecture review",
-      "Security and compliance consulting",
-    ],
-    quoteMessage: "Consulting that drives impact—not reports",
-  },
-  {
-    id: "08",
-    label: "Content Writing",
-    description: "Words that sell, tell, and rank",
-    icon: FolderCheck,
-    subPoints: [
-      "Website & landing page copywriting",
-      "SEO-optimized blog articles",
-      "Technical documentation and help guides",
-      "Product descriptions and UX microcopy",
-      "Email campaigns and social media content",
-    ],
-    quoteMessage: "We write content that speaks your brand",
-  },
+  }
 ];
 
 
