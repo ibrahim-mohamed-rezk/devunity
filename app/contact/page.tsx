@@ -58,7 +58,7 @@ const ContactPage = () => {
             Accept: "application/json",
             "X-Requested-With": "XMLHttpRequest",
           },
-          withCredentials: true, // بدل credentials: 'include'
+          withCredentials: false, // بدل credentials: 'include'
         }
       );
   
