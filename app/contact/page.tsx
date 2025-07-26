@@ -76,11 +76,11 @@ const ContactPage = () => {
       }, 3000);
   
       return response.data;
-    } catch (error: any) {
+    } catch (error) {
       console.error("Error submitting form:", error);
   
       const errorMessage =
-        error?.response?.data?.message || error.message || "Unknown error";
+         "Unknown error";
   
       if (errorMessage.includes("CSRF token expired")) {
         alert(
