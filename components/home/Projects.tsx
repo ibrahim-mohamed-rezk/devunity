@@ -4,10 +4,17 @@ import Link from "next/link";
 import ProjectCard from "../cards/ProjectCard";
 import { ProjectCardTypes } from "@/libs/helpers/types";
 import { useEffect, useRef, useState } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
 
 const Projects = ({ projectsData }: { projectsData: [ProjectCardTypes] }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [visibleCards, setVisibleCards] = useState<number[]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -15,12 +22,6 @@ const Projects = ({ projectsData }: { projectsData: [ProjectCardTypes] }) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Animate cards one by one
-          projectsData.forEach((_, index) => {
-            setTimeout(() => {
-              setVisibleCards(prev => [...prev, index]);
-            }, index * 120);
-          });
         }
       },
       { threshold: 0.1 }
@@ -31,7 +32,7 @@ const Projects = ({ projectsData }: { projectsData: [ProjectCardTypes] }) => {
     }
 
     return () => observer.disconnect();
-  }, [projectsData]);
+  }, []);
 
   return (
     <div ref={sectionRef} className="w-full mt-[100px] relative">
@@ -69,38 +70,93 @@ const Projects = ({ projectsData }: { projectsData: [ProjectCardTypes] }) => {
         </div>
       </div>
 
-      {/* Projects Grid */}
-      <div className="w-full flex px-[10px] md:px-0 justify-center items-center gap-[30px] flex-wrap mt-[90px] relative z-10">
-        {projectsData.map((project, index) => (
-          <div
-            key={index}
-            className={`
-              transition-all duration-800 ease-out
-              ${visibleCards.includes(index) 
-                ? 'translate-y-0 opacity-100 scale-100' 
-                : 'translate-y-12 opacity-0 scale-95'
-              }
-              hover:scale-[1.03] hover:-translate-y-3 
-              transform-gpu group
-            `}
-            style={{
-              transitionDelay: `${index * 80}ms`,
-            }}
-          >
-            <div className="relative">
-              {/* Subtle hover glow */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-[#00ce93]/5 to-[#00a075]/5 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-              
-              {/* Card wrapper with enhanced shadow */}
-              <div className="relative rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#00ce93]/20">
-                <ProjectCard cardData={project} />
-              </div>
+      {/* Projects Slider */}
+      <div className={`
+        w-full mt-[90px] relative z-10 px-4
+        transition-all duration-1000 ease-out delay-300
+        ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}
+      `}>
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
+          spaceBetween={30}
+          slidesPerView={1}
+          centeredSlides={true}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          loop={true}
+          effect="coverflow"
+          coverflowEffect={{
+            rotate: 15,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: false,
+          }}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+            bulletActiveClass: 'swiper-pagination-bullet-active-custom',
+            bulletClass: 'swiper-pagination-bullet-custom',
+          }}
+          navigation={{
+            nextEl: '.swiper-button-next-custom',
+            prevEl: '.swiper-button-prev-custom',
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1.2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 1.5,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 2.2,
+              spaceBetween: 30,
+            },
+            1280: {
+              slidesPerView: 2.5,
+              spaceBetween: 40,
+            },
+          }}
+          className="projects-swiper"
+        >
+          {projectsData.map((project, index) => (
+            <SwiperSlide key={index}>
+              <div className="group transform-gpu transition-all duration-300 hover:scale-[1.02]">
+                <div className="relative">
+                  {/* Subtle hover glow */}
+                  <div className="absolute -inset-2 bg-gradient-to-r from-[#00ce93]/5 to-[#00a075]/5 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                  
+                  {/* Card wrapper with enhanced shadow */}
+                  <div className="relative rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#00ce93]/20">
+                    <ProjectCard cardData={project} />
+                  </div>
 
-              {/* Animated corner accent */}
-              <div className="absolute top-0 left-0 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-[#00ce93] opacity-0 group-hover:opacity-30 transition-all duration-300 rounded-tl-xl"></div>
-            </div>
-          </div>
-        ))}
+                  {/* Animated corner accent */}
+                  <div className="absolute top-0 left-0 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-[#00ce93] opacity-0 group-hover:opacity-30 transition-all duration-300 rounded-tl-xl"></div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Custom Navigation Buttons */}
+        <div className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[#00ce93] hover:text-white group border border-gray-200">
+          <svg className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </div>
+
+        <div className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[#00ce93] hover:text-white group border border-gray-200">
+          <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
       </div>
 
       {/* See More Button */}
@@ -165,8 +221,8 @@ const Projects = ({ projectsData }: { projectsData: [ProjectCardTypes] }) => {
         ))}
       </div>
 
-      {/* Custom animations */}
-      <style jsx>{`
+      {/* Custom Styles */}
+      <style jsx global>{`
         @keyframes float {
           0%, 100% {
             transform: translateY(0px);
@@ -175,6 +231,46 @@ const Projects = ({ projectsData }: { projectsData: [ProjectCardTypes] }) => {
           50% {
             transform: translateY(-10px);
             opacity: 0.8;
+          }
+        }
+
+        .projects-swiper .swiper-pagination {
+          bottom: -50px !important;
+        }
+
+        .swiper-pagination-bullet-custom {
+          width: 12px;
+          height: 12px;
+          background: #e5e7eb;
+          opacity: 1;
+          margin: 0 6px;
+          transition: all 0.3s ease;
+          border-radius: 50%;
+        }
+
+        .swiper-pagination-bullet-active-custom {
+          background: #00ce93;
+          transform: scale(1.2);
+        }
+
+        .projects-swiper .swiper-slide {
+          height: auto;
+        }
+
+        .projects-swiper {
+          padding: 20px 60px 60px 60px;
+          overflow: visible;
+        }
+
+        @media (max-width: 768px) {
+          .projects-swiper {
+            padding: 20px 40px 60px 40px;
+          }
+          
+          .swiper-button-prev-custom,
+          .swiper-button-next-custom {
+            width: 40px;
+            height: 40px;
           }
         }
       `}</style>

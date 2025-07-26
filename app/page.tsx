@@ -1,6 +1,6 @@
 import DevelopCycle from "@/components/home/DevelopCycle";
 import Projects from "@/components/home/Projects";
-import Team from "@/components/home/Team";
+// import Team from "@/components/home/Team";
 import { get } from "@/libs/axios/backEndServer";
 
 
@@ -23,7 +23,7 @@ export default async function Home() {
   return (
     <div className="mt-[100px]">
       <DevelopCycle  />
-      <Team owners={homeData?.owners} /> {/* Pass the fetched data to Team */}
+      {/* <Team owners={homeData?.owners} /> Pass the fetched data to Team */}
       <Projects projectsData={homeData?.projects} />
     </div>
   );
