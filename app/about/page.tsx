@@ -32,28 +32,28 @@ const AboutPage = () => {
     }
   ];
 
-  const team = [
-    {
-      name: 'Sarah Chen',
-      role: 'Chief Technology Officer',
-      description: 'Former Google engineer with 15+ years in distributed systems and cloud architecture.'
-    },
-    {
-      name: 'Marcus Rodriguez',
-      role: 'Head of Engineering',
-      description: 'Full-stack expert specializing in scalable web applications and DevOps practices.'
-    },
-    {
-      name: 'Aisha Patel',
-      role: 'Lead Data Scientist',
-      description: 'PhD in Machine Learning with expertise in AI solutions and predictive analytics.'
-    },
-    {
-      name: 'David Kim',
-      role: 'Product Director',
-      description: 'Product strategist focused on user experience and technical product development.'
-    }
-  ];
+  // const team = [
+  //   {
+  //     name: 'Sarah Chen',
+  //     role: 'Chief Technology Officer',
+  //     description: 'Former Google engineer with 15+ years in distributed systems and cloud architecture.'
+  //   },
+  //   {
+  //     name: 'Marcus Rodriguez',
+  //     role: 'Head of Engineering',
+  //     description: 'Full-stack expert specializing in scalable web applications and DevOps practices.'
+  //   },
+  //   {
+  //     name: 'Aisha Patel',
+  //     role: 'Lead Data Scientist',
+  //     description: 'PhD in Machine Learning with expertise in AI solutions and predictive analytics.'
+  //   },
+  //   {
+  //     name: 'David Kim',
+  //     role: 'Product Director',
+  //     description: 'Product strategist focused on user experience and technical product development.'
+  //   }
+  // ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
