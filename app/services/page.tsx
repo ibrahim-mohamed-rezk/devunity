@@ -323,7 +323,7 @@ const MedicalServicesTimeline = () => {
     <main
       className="overflow-x-hidden relative z-0 -top-11"
       style={{
-        background: "linear-gradient(135deg, #21C38B, #658880)",
+        background: "#327867",
         backgroundSize: "150% 150%",
       }}
       
