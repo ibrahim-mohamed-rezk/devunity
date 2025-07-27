@@ -323,9 +323,10 @@ const MedicalServicesTimeline = () => {
     <main
       className="overflow-x-hidden relative z-0 -top-11"
       style={{
-        background: "#212C3D", // dark green to black
+        background: "linear-gradient(135deg, #21C38B, #658880)",
         backgroundSize: "150% 150%",
       }}
+      
     >
       {/* Simple background effects */}
       <div className="absolute inset-0 overflow-hidden">
