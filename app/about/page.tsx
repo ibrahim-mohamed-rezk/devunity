@@ -214,7 +214,7 @@ const AboutPage = () => {
             Ready to Build Something Amazing?
           </h2>
           <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
-            Let's discuss how we can help transform your ideas into powerful, scalable solutions.
+            Let&apos;s discuss how we can help transform your ideas into powerful, scalable solutions.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button className="group flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl" 
