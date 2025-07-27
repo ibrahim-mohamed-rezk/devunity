@@ -85,23 +85,28 @@ const Footer = () => {
             <div className=" flex-col justify-start items-center md:items-start gap-[24px] inline-flex">
               <div className="justify-start items-center flex-col md:items-start flex">
                 <div className="text-[#fcfcfc] text-base font-medium font-['Inter'] leading-none tracking-tight">
-                  Product
+                  Main Pages
                 </div>
               </div>
               <div className="flex-col justify-start items-center md:items-start gap-3 flex">
                 <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex">
                   <div className="justify-center items-center flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
-                    Product
+                    About Us
                   </div>
                 </div>
                 <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex">
                   <div className="justify-center items-center flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
-                    Changelog
+                    Contact Us
                   </div>
                 </div>
                 <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex">
                   <div className="justify-center items-center flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
-                    Guide
+                    Services
+                  </div>
+                </div>
+                <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex">
+                  <div className="justify-center items-center flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
+                    Projects
                   </div>
                 </div>
               </div>
@@ -130,9 +135,9 @@ const Footer = () => {
                 <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
                   Privacy Policy
                 </div>
-                <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
+                {/* <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
                   한국어
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -141,11 +146,11 @@ const Footer = () => {
         <div className="w-full mt-[40px] ">
           <div className="w-full border-t border-white/10"></div>
           <div className="pr-[0.19px] mt-[30px] flex-col md:flex-row gap-[10px] w-full flex items-center justify-between">
-            <div className="text-white/60 text-[15px] font-normal font-['Inter'] leading-[18px] tracking-tight">
+            {/* <div className="text-white/60 text-[15px] font-normal font-['Inter'] leading-[18px] tracking-tight">
               © 2023 Pixelic, Inc. dba Relate.
-            </div>
+            </div> */}
             <div className="text-white/60 md:pe-[70px] text-[15px] font-normal font-['Inter'] leading-[18px] tracking-tight">
-              Backed by Y Combinator
+              Powered by DevUnity Software
             </div>
           </div>
         </div>
