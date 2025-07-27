@@ -1,3 +1,5 @@
+
+import Link from "next/link"
 const Footer = () => {
   return (
     <div className="w-full flex items-center justify-center mb-[clamp(2px,1.041665vw,20px)] ">
@@ -126,8 +128,8 @@ const Footer = () => {
               </button>
             </div>
           </div>
-
           <div className="pt-[44px] justify-center md:justify-start items-start gap-y-[30px] gap-x-[clamp(70px,5.208334vw,100px)] inline-flex flex-wrap ">
+            {/* Main Pages */}
             <div className=" flex-col justify-start items-center md:items-start gap-[24px] inline-flex">
               <div className="justify-start items-center flex-col md:items-start flex">
                 <div className="text-[#fcfcfc] text-base font-medium font-['Inter'] leading-none tracking-tight">
@@ -135,48 +137,67 @@ const Footer = () => {
                 </div>
               </div>
               <div className="flex-col justify-start items-center md:items-start gap-3 flex">
-                <a href="/about" className="text-white/60 hover:text-white transition text-base font-normal font-['Inter'] leading-normal">
+                <Link
+                  href="/about"
+                  className="text-white/60 hover:text-white transition text-base font-normal font-['Inter'] leading-normal"
+                >
                   About Us
-                </a>
-                <a href="/contact" className="text-white/60 hover:text-white transition text-base font-normal font-['Inter'] leading-normal">
+                </Link>
+                <Link
+                  href="/contact"
+                  className="text-white/60 hover:text-white transition text-base font-normal font-['Inter'] leading-normal"
+                >
                   Contact Us
-                </a>
-                <a href="/services" className="text-white/60 hover:text-white transition text-base font-normal font-['Inter'] leading-normal">
+                </Link>
+                <Link
+                  href="/services"
+                  className="text-white/60 hover:text-white transition text-base font-normal font-['Inter'] leading-normal"
+                >
                   Services
-                </a>
-                <a href="/projects" className="text-white/60 hover:text-white transition text-base font-normal font-['Inter'] leading-normal">
+                </Link>
+                <Link
+                  href="/projects"
+                  className="text-white/60 hover:text-white transition text-base font-normal font-['Inter'] leading-normal"
+                >
                   Projects
-                </a>
+                </Link>
               </div>
-
             </div>
 
+            {/* Learn */}
             <div className="w-[44.25px] flex-col justify-start items-center md:items-start gap-[24px] inline-flex">
               <div className="text-[#fcfcfc] text-base font-medium font-['Inter'] leading-none tracking-tight justify-start items-center flex-col md:items-start inline-flex">
                 Learn
               </div>
               <div className="justify-start items-center flex-col md:items-start inline-flex">
-                <div className="self-stretch justify-center items-center inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
+                <Link
+                  href="/blog"
+                  className="self-stretch justify-center items-center inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal"
+                >
                   Blog
-                </div>
+                </Link>
               </div>
             </div>
 
+            {/* Company */}
             <div className="flex-col justify-start items-center md:items-start gap-[24px] inline-flex">
               <div className="text-[#fcfcfc] justify-start items-center flex-col md:items-start flex text-base font-medium font-['Inter'] leading-none tracking-tight">
                 Company
               </div>
 
               <div className="flex-col justify-start items-center md:items-start gap-3 flex">
-                <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
+                <Link
+                  href="/terms"
+                  className="self-stretch justify-start items-center flex-col md:items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal"
+                >
                   Terms of Service
-                </div>
-                <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
+                </Link>
+                <Link
+                  href="/privacy"
+                  className="self-stretch justify-start items-center flex-col md:items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal"
+                >
                   Privacy Policy
-                </div>
-                {/* <div className="self-stretch justify-start items-center flex-col md:items-start inline-flex text-white/60 text-base font-normal font-['Inter'] leading-normal">
-                  한국어
-                </div> */}
+                </Link>
               </div>
             </div>
           </div>
