@@ -2,8 +2,10 @@
 
 import { useState, useEffect, useRef } from "react";
 import {
-
-  FolderCheck,
+  Smartphone,
+  Globe,
+  Palette,
+  TestTube,
   Sparkles,
 } from "lucide-react";
 
@@ -12,7 +14,7 @@ const services = [
     id: "01",
     label: "iOS Development",
     description: "Build seamless apps for Apple users",
-    icon: FolderCheck,
+    icon: Smartphone,
     subPoints: [
       "Native Swift & Objective-C development",
       "Integration with Apple services (HealthKit, ARKit, etc.)",
@@ -26,7 +28,7 @@ const services = [
     id: "02",
     label: "Android Development",
     description: "Reach millions with robust Android apps",
-    icon: FolderCheck,
+    icon: Smartphone,
     subPoints: [
       "Kotlin & Java development for all devices",
       "Support for tablets, wearables, and foldables",
@@ -40,7 +42,7 @@ const services = [
     id: "03",
     label: "Web Development",
     description: "Fast, responsive, and scalable websites",
-    icon: FolderCheck,
+    icon: Globe,
     subPoints: [
       "Frontend with React, Next.js, Vue, or Angular",
       "Backend using Node.js, Laravel, or Django",
@@ -54,7 +56,7 @@ const services = [
     id: "04",
     label: "UI/UX Design",
     description: "Designs that convert and captivate",
-    icon: FolderCheck,
+    icon: Palette,
     subPoints: [
       "User research & journey mapping",
       "Wireframes, mockups, and prototypes (Figma, Adobe XD)",
@@ -68,7 +70,7 @@ const services = [
     id: "05",
     label: "Quality Assurance Testing",
     description: "Bug-free is our default",
-    icon: FolderCheck,
+    icon: TestTube,
     subPoints: [
       "Automated testing (unit, integration, E2E)",
       "Manual testing with real-world scenarios",
